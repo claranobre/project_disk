@@ -15,14 +15,14 @@ public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
 
-    int getTamSetor() const;
-    void setTamSetor(int value);
-
     int getQuantSetor() const;
     void setQuantSetor(int value);
 
     int getTamDisco() const;
     void setTamDisco(int value);
+
+    int getTamSetor() const;
+    void setTamSetor(int value);
 
 private slots:
     void on_valTamSetor_valueChanged(int arg1);

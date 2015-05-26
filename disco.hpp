@@ -4,11 +4,11 @@
 template <typename TYPE>
 class Disco {
 
-	struct Node {
-		TYPE data;
-		Node *next, *prev;
-		Node() { next = prev = nullptr; }
-	};
+private:
+    int numSetores;
+    int tamSetores;
+    int tamanho;
+
 public:
 	/** Verifica se o Disco está vazio */
 	bool isEmpty();
@@ -58,4 +58,4 @@ public:
 	 * @return Elemento apagado
 	 */
 	int recuperar(const TYPE &elm);
-}	
+}

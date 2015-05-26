@@ -1,15 +1,20 @@
 #include "disco.h"
 
-Disco::Disco()
-{
-    //Criar os setores aqui tbm
-}
-
-Disco::~Disco()
-{
+Disco::Disco(){
 
 }
-int Disco::getNumSetores() const
+
+Disco::~Disco(){
+
+}
+
+int Disco::Formatar(){}
+
+int Disco::Desfragmentar(){}
+
+int Disco::Recuperar(){}
+
+int Disco::getNumSetores()
 {
     return numSetores;
 }
@@ -18,16 +23,8 @@ void Disco::setNumSetores(int value)
 {
     numSetores = value;
 }
-int Disco::getTamSetores() const
-{
-    return tamSetores;
-}
 
-void Disco::setTamSetores(int value)
-{
-    tamSetores = value;
-}
-int Disco::getTamanho() const
+int Disco::getTamanho()
 {
     return tamanho;
 }
@@ -37,6 +34,12 @@ void Disco::setTamanho(int value)
     tamanho = value;
 }
 
+int Disco::getTamSetores()
+{
+    return tamSetores;
+}
 
-
-
+void Disco::setTamSetores(int value)
+{
+    tamSetores = value;
+}

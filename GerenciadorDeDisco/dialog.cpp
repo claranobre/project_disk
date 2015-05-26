@@ -30,6 +30,16 @@ void Dialog::on_valQuantSetor_valueChanged(int arg1)
     tamDiscoStr = QString::number(tamDisco);
     ui->valTamDisco->setText(tamDiscoStr);
 }
+int Dialog::getTamSetor() const
+{
+    return tamSetor;
+}
+
+void Dialog::setTamSetor(int value)
+{
+    tamSetor = value;
+}
+
 int Dialog::getTamDisco() const
 {
     return tamDisco;
@@ -48,14 +58,4 @@ int Dialog::getQuantSetor() const
 void Dialog::setQuantSetor(int value)
 {
     quantSetor = value;
-}
-
-int Dialog::getTamSetor() const
-{
-    return tamSetor;
-}
-
-void Dialog::setTamSetor(int value)
-{
-    tamSetor = value;
 }

@@ -51,34 +51,13 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>70</y>
+     <y>60</y>
      <width>213</width>
      <height>83</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QFormLayout" name="formLayout">
     <item row="0" column="0">
-     <widget class="QLabel" name="tamSetor">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Tamanho do Setor</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QSpinBox" name="valTamSetor">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
      <widget class="QLabel" name="quantSetor">
       <property name="font">
        <font>
@@ -90,8 +69,29 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
+    <item row="0" column="1">
      <widget class="QSpinBox" name="valQuantSetor">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="tamSetor">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Tamanho do Setor</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="valTamSetor">
       <property name="font">
        <font>
         <pointsize>12</pointsize>
@@ -125,15 +125,9 @@
     </item>
    </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
   <zorder>buttonBox</zorder>
   <zorder>label</zorder>
-  <zorder>tamSetor</zorder>
-  <zorder>quantSetor</zorder>
-  <zorder>valTamSetor</zorder>
-  <zorder>valQuantSetor</zorder>
-  <zorder>tamDisco</zorder>
-  <zorder>valTamDisco</zorder>
-  <zorder>valTamDisco</zorder>
  </widget>
  <resources/>
  <connections>

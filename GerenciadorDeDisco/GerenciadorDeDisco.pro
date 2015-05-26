@@ -15,11 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     dialog.cpp \
-    disco.cpp
+    disco.cpp \
+    lista.cpp \
+    file.cpp \
+    setor.cpp
 
 HEADERS  += mainwindow.h \
     dialog.h \
-    disco.h
+    disco.h \
+    lista.h \
+    file.h \
+    setor.h
 
 FORMS    += mainwindow.ui \
     dialog.ui
