@@ -1,9 +1,9 @@
 template <typename TYPE>
-Lista<TYPE>::Lista(){}
+Disco<TYPE>::Disco(){}
 
 template <typename TYPE>
-Lista<TYPE>::~Lista(){
-  if(getSize() <= 0){
+Disco<TYPE>::~Disco(){
+  if(numDeSetores() <= 0){
     return;
   }
   Node *aux = list.next;
@@ -15,8 +15,8 @@ Lista<TYPE>::~Lista(){
 }
 
 template <typename TYPE>
-bool Lista<TYPE>::isEmpty(){
-  if(getSize() == 0){
+bool Disco<TYPE>::isEmpty(){
+  if(numDeSetores() == 0){
     return true;
   }
   else{
@@ -25,7 +25,7 @@ bool Lista<TYPE>::isEmpty(){
 }
 
 template <typename TYPE>
-int Lista<TYPE>::getSize(){
+int Disco<TYPE>::numDeSetores(){
   Node *aux = list.next;
   int cont = 0;
   while(aux != nullptr){
@@ -36,16 +36,16 @@ int Lista<TYPE>::getSize(){
 }
 
 template <typename TYPE>
-bool Lista<TYPE>::add(const TYPE &value, int pos){}
+bool Disco<TYPE>::add(const TYPE &value, int pos){}
 
 template <typename TYPE>
-TYPE Lista<TYPE>::remove(int pos){}
+TYPE Disco<TYPE>::remove(int pos){}
 
 template <typename TYPE>
-int Lista<TYPE>::search(const TYPE &elm){
+int Disco<TYPE>::search(const TYPE &elm){
   int i;
   Node *aux = list.next;
-  for (i = 1; i <= getSize(); i++){
+  for (i = 1; i <= numDeSetores(); i++){
     if (aux->data == elm)
       return true;
     aux = aux->next;
@@ -54,10 +54,19 @@ int Lista<TYPE>::search(const TYPE &elm){
 }
 
 template <typename TYPE>
-void Lista<TYPE>::print(){
+void Disco<TYPE>::print(){
   Node *aux = list.next;
   while(aux != nullptr){
     cout<<aux->data<<endl;
     aux = aux->next;
   }
 }
+
+template <typename TYPE>
+int Disco<TYPE>::formatar(){}
+
+template <typename TYPE>
+int Disco<TYPE>::desfragmentar(){}
+
+template <typename TYPE>
+int Disco<TYPE>::recuperar(){}

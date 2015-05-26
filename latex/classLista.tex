@@ -1,0 +1,135 @@
+\hypertarget{classLista}{}\section{Lista$<$ T\+Y\+P\+E $>$ Class Template Reference}
+\label{classLista}\index{Lista$<$ T\+Y\+P\+E $>$@{Lista$<$ T\+Y\+P\+E $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classLista_a1f5401b4cff0910a13da7190f08e6e29}{is\+Empty} ()
+\item 
+int \hyperlink{classLista_a7d72cde343c869a5a6c6acc442413498}{get\+Size} ()
+\item 
+bool \hyperlink{classLista_a335dd24f64befa4f6e647c5454def9cd}{add} (const T\+Y\+P\+E \&value, int pos=0)
+\item 
+T\+Y\+P\+E \hyperlink{classLista_acfa3991b3fb91d3c4c1df5eb02e583ac}{remove} (int pos=0)
+\item 
+int \hyperlink{classLista_aa876dc91fdc196b50d8e12b2887fee0a}{search} (const T\+Y\+P\+E \&elm)
+\item 
+int \hyperlink{classLista_aad7434887449f736b322071315ec64cd}{formatar} ()
+\item 
+int \hyperlink{classLista_aba5184a091be36897e32075b18abcb40}{fragmentar} (const T\+Y\+P\+E \&value, int pos=0)
+\item 
+int \hyperlink{classLista_a0cbeced4e444c69562262fcb1e1ab49c}{recuperar} (const T\+Y\+P\+E \&elm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLista_a335dd24f64befa4f6e647c5454def9cd}{}\index{Lista@{Lista}!add@{add}}
+\index{add@{add}!Lista@{Lista}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+P\+E $>$ bool {\bf Lista}$<$ T\+Y\+P\+E $>$\+::add (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+P\+E \&}]{value, }
+\item[{int}]{pos = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classLista_a335dd24f64befa4f6e647c5454def9cd}
+Adiciona um elemento em uma posição específica da lista. Se a posição dada for negativa, insere no ínicio. Se a posição for maior que o tamanho da lista, insere no final. 
+\begin{DoxyParams}{Parameters}
+{\em value} & Elemento a ser inserido \\
+\hline
+{\em pos} & Posição do elemento a ser inserido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Verdadeiro se o elemento foi adicionado ou falso caso contrário (memória cheia, por exemplo) 
+\end{DoxyReturn}
+\hypertarget{classLista_aad7434887449f736b322071315ec64cd}{}\index{Lista@{Lista}!formatar@{formatar}}
+\index{formatar@{formatar}!Lista@{Lista}}
+\subsubsection[{formatar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+P\+E $>$ int {\bf Lista}$<$ T\+Y\+P\+E $>$\+::formatar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLista_aad7434887449f736b322071315ec64cd}
+Formata toda a lista \begin{DoxyReturn}{Returns}
+lista vazia 
+\end{DoxyReturn}
+\hypertarget{classLista_aba5184a091be36897e32075b18abcb40}{}\index{Lista@{Lista}!fragmentar@{fragmentar}}
+\index{fragmentar@{fragmentar}!Lista@{Lista}}
+\subsubsection[{fragmentar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+P\+E $>$ int {\bf Lista}$<$ T\+Y\+P\+E $>$\+::fragmentar (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+P\+E \&}]{value, }
+\item[{int}]{pos = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classLista_aba5184a091be36897e32075b18abcb40}
+Fragmenta a lista, pegando espaços vazios e preenchendo com dados mais próximos 
+\begin{DoxyParams}{Parameters}
+{\em value} & Dado a ser inserido \\
+\hline
+{\em posição} & do dado a ser inserido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lista vazia 
+\end{DoxyReturn}
+\hypertarget{classLista_a7d72cde343c869a5a6c6acc442413498}{}\index{Lista@{Lista}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Lista@{Lista}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+P\+E $>$ int {\bf Lista}$<$ T\+Y\+P\+E $>$\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLista_a7d72cde343c869a5a6c6acc442413498}
+Retorna o número de elementos na lista \hypertarget{classLista_a1f5401b4cff0910a13da7190f08e6e29}{}\index{Lista@{Lista}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Lista@{Lista}}
+\subsubsection[{is\+Empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+P\+E $>$ bool {\bf Lista}$<$ T\+Y\+P\+E $>$\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classLista_a1f5401b4cff0910a13da7190f08e6e29}
+Verifica se a lista está vazia \hypertarget{classLista_a0cbeced4e444c69562262fcb1e1ab49c}{}\index{Lista@{Lista}!recuperar@{recuperar}}
+\index{recuperar@{recuperar}!Lista@{Lista}}
+\subsubsection[{recuperar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+P\+E $>$ int {\bf Lista}$<$ T\+Y\+P\+E $>$\+::recuperar (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+P\+E \&}]{elm}
+\end{DoxyParamCaption}
+)}\label{classLista_a0cbeced4e444c69562262fcb1e1ab49c}
+Recuperar um elemento já apagado 
+\begin{DoxyParams}{Parameters}
+{\em elm} & Elemento a ser recuperado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elemento apagado 
+\end{DoxyReturn}
+\hypertarget{classLista_acfa3991b3fb91d3c4c1df5eb02e583ac}{}\index{Lista@{Lista}!remove@{remove}}
+\index{remove@{remove}!Lista@{Lista}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+P\+E $>$ T\+Y\+P\+E {\bf Lista}$<$ T\+Y\+P\+E $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{pos = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classLista_acfa3991b3fb91d3c4c1df5eb02e583ac}
+Remove o elemento de uma posição específica. Se a posição dada for negativa, remove o primeiro elemento. Se for maior que o tamanho, remove o último. 
+\begin{DoxyParams}{Parameters}
+{\em pos} & Posição do elemento a ser removido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Uma cópia do elemento removido 
+\end{DoxyReturn}
+\hypertarget{classLista_aa876dc91fdc196b50d8e12b2887fee0a}{}\index{Lista@{Lista}!search@{search}}
+\index{search@{search}!Lista@{Lista}}
+\subsubsection[{search}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+P\+E $>$ int {\bf Lista}$<$ T\+Y\+P\+E $>$\+::search (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+P\+E \&}]{elm}
+\end{DoxyParamCaption}
+)}\label{classLista_aa876dc91fdc196b50d8e12b2887fee0a}
+Consulta a posição de um elemento na lista 
+\begin{DoxyParams}{Parameters}
+{\em elm} & Elemento a ser consultado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Posição em que ele se encontra ou -\/1 se ele não existir na lista 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lista.\+hpp\item 
+lista.\+cpp\end{DoxyCompactItemize}
