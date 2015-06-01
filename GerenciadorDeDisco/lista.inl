@@ -1,5 +1,3 @@
-#include "lista.h"
-
 template <class type>
 Lista<type>::Lista() {
     bhvr = LISTASIMPLES;
@@ -32,8 +30,8 @@ template <class type>
 Lista<type>::~Lista() {
     if (bhvr == LISTASIMPLES)
         while (Remove(0));
-    else
-        while (Remove());
+   // else
+        //while (Remove());
     delete head;
 }
 
@@ -69,7 +67,7 @@ bool Lista<type>::GetElem(int pos, type &get) const { //retorna se posição é 
     return false;
 };
 
-template <class type>
+/*template <class type>
 bool Lista<type>::GetElem(type &get) const { //retorna se lista ou pilha possui elemento top. &get armazenará valor
     if (tam > 0) {
         if (bhvr == PILHA) {
@@ -83,13 +81,12 @@ bool Lista<type>::GetElem(type &get) const { //retorna se lista ou pilha possui 
             }
             get = temp->val;
             return true;
-
         }
         return false;
     }
     return false;
 }
-
+*/
 template <class type>
 int Lista<type>::Search(type val) { //retorna posição da primeira instância de val
     //-1: não existe elemento
@@ -105,7 +102,7 @@ int Lista<type>::Search(type val) { //retorna posição da primeira instância d
         return -1;
     }
     return -1;
-};
+}
 
 template <class type>
 bool Lista<type>::Insert(int pos, type val) { //retorna se inserção OK. Insere val em lista simples
@@ -123,7 +120,7 @@ bool Lista<type>::Insert(int pos, type val) { //retorna se inserção OK. Insere
     }
     return false;
 }
-
+/*
 template <class type>
 bool Lista<type>::Insert(type val) { //retorna se inserção OK. Insere val em filas e pilhas
     if (tam >= 0 && (bhvr == PILHA || bhvr == FILA)) {
@@ -139,7 +136,7 @@ bool Lista<type>::Insert(type val) { //retorna se inserção OK. Insere val em f
     }
     return false;
 }
-
+*/
 template <class type>
 bool Lista<type>::Remove(unsigned int pos) { //retorna se remoção OK. Não retorna valor. Funciona para listas
     if (pos >= 0 && pos < tam && bhvr == LISTASIMPLES) {
@@ -156,7 +153,7 @@ bool Lista<type>::Remove(unsigned int pos) { //retorna se remoção OK. Não ret
     }
     return false;
 };
-
+/*
 template <class type>
 bool Lista<type>::Remove() {
     if (tam > 0 && head->next != NULL) {
@@ -183,7 +180,7 @@ bool Lista<type>::Remove() {
     }
     return false;
 }
-
+*/
 template <class type>
 bool Lista<type>::Remove(int pos, type &get) { //retorna se remoção OK. &get armazenará valor da posição
     if (pos >= 0 && pos < tam && bhvr == LISTASIMPLES) {
@@ -201,7 +198,7 @@ bool Lista<type>::Remove(int pos, type &get) { //retorna se remoção OK. &get a
     }
     return false;
 };
-
+/*
 template <class type>
 bool Lista<type>::Remove(type &get) { //se usar referência e type = int vai dar conflito com Remove(int pos)
 //salvar imediatamente conteúdo de get em outra variável caso seja ponteiro
@@ -231,7 +228,7 @@ bool Lista<type>::Remove(type &get) { //se usar referência e type = int vai dar
     }
     return false;
 }
-
+*/
 template <class type>
 void Lista<type>::Print(char separator) {
     node *temp = head->next;

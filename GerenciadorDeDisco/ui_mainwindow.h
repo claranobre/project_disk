@@ -120,7 +120,7 @@ public:
 
         grafico = new QLabel(centralWidget);
         grafico->setObjectName(QStringLiteral("grafico"));
-        grafico->setGeometry(QRect(30, 30, 47, 13));
+        grafico->setGeometry(QRect(30, 30, 611, 51));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));

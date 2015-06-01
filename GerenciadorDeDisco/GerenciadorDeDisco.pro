@@ -16,9 +16,9 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     dialog.cpp \
     disco.cpp \
-    lista.cpp \
     file.cpp \
-    setor.cpp
+    setor.cpp \
+    lista.inl
 
 HEADERS  += mainwindow.h \
     dialog.h \

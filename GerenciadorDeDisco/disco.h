@@ -10,10 +10,11 @@ private:
     int numSetores;
     int tamSetores;
     int tamanho;
-    /*Lista<File*> info;
+
+    Lista<File*> info;
     Lista<Setor*> cluster;
     Lista<Setor*> pool;
-    Lista<char*> disk;*/
+    //char disk[tamanho];
 
 public:
     Disco();
@@ -40,6 +41,12 @@ public:
     void setTamanho(int value);
     int getTamSetores();
     void setTamSetores(int value);
+    Lista<File *> getInfo();
+    void setInfo(Lista<File *> &value);
+    Lista<Setor *> getCluster();
+    void setCluster(Lista<Setor *> &value);
+    Lista<Setor *> getPool();
+    void setPool(Lista<Setor *> &value);
 };
 
 #endif // DISCO_H

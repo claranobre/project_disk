@@ -10,21 +10,6 @@ Disco::~Disco()
 
 }
 
-int Disco::Formatar()
-{
-
-}
-
-int Disco::Desfragmentar()
-{
-
-}
-
-int Disco::Recuperar()
-{
-
-}
-
 int Disco::getNumSetores()
 {
     return numSetores;
@@ -53,4 +38,49 @@ int Disco::getTamSetores()
 void Disco::setTamSetores(int value)
 {
     tamSetores = value;
+}
+
+Lista<File *> Disco::getInfo()
+{
+    return info;
+}
+
+void Disco::setInfo( Lista<File *> &value)
+{
+    info = value;
+}
+
+Lista<Setor *> Disco::getCluster()
+{
+    return cluster;
+}
+
+void Disco::setCluster( Lista<Setor *> &value)
+{
+    cluster = value;
+}
+
+Lista<Setor *> Disco::getPool()
+{
+    return pool;
+}
+
+void Disco::setPool( Lista<Setor *> &value)
+{
+    pool = value;
+}
+
+int Disco::Formatar()
+{
+
+}
+
+int Disco::Desfragmentar()
+{
+
+}
+
+int Disco::Recuperar()
+{
+
 }

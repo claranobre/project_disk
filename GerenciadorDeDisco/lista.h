@@ -1,5 +1,5 @@
-#ifndef _LISTA_H_
-#define _LISTA_H_
+#ifndef LISTA_H
+#define LISTA_H
 #include <iostream>
 #include <cstddef>
 
@@ -91,7 +91,7 @@ public:
     * \return Retorna se conseguiu recuperar o valor.
     * @param &get receberá, por referência, próximo valor a ser retirado da pilha ou fila
     */
-    bool GetElem(type &get) const;
+   // bool GetElem(type &get) const;
 
     /**
     * Procura por um valor na lista
@@ -130,7 +130,7 @@ public:
     * Só funciona para filas ou pilhas.
     * \return Retorna se removeu o elemento
     */
-    bool Remove();
+    //bool Remove();
 
     /**
     * Remove valor de uma posição da lista, retornando-o por referência
@@ -147,7 +147,7 @@ public:
     * \return Retorna se removeu o elemento
     * @param &get recebe, por referência, valor removido da fila/pilha
     */
-    bool Remove(type &get);
+   // bool Remove(type &get);
 
     /**
     * Imprime conteúdo da lista/fila/pilha
@@ -161,4 +161,5 @@ public:
     */
     BEHAVIOR GetBehavior() const;
 };
+    #include "lista.inl"
 #endif
