@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialog.h"
-#include "disco.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,10 +18,23 @@ MainWindow::~MainWindow()
 
 void MainWindow::AbrirDialog()
 {
-    Disco hd;
     Dialog dialog;
     dialog.exec();
     hd.setNumSetores(dialog.getQuantSetor());
     hd.setTamSetores(dialog.getTamSetor());
     hd.setTamanho(dialog.getTamDisco());
+    Plotar();
+}
+
+void MainWindow::Plotar()
+{
+    QString grafico;
+    for(int i = 0; i < hd.getNumSetores(); i++){
+        grafico.push_back("[");
+        for(int j = 0; j < hd.getTamSetores(); j++){
+            grafico.push_back("0");
+        }
+        grafico.push_back("]");
+    }
+    ui->grafico->setText(grafico);
 }

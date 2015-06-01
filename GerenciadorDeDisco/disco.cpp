@@ -1,18 +1,29 @@
 #include "disco.h"
 
-Disco::Disco(){
+Disco::Disco()
+{
 
 }
 
-Disco::~Disco(){
+Disco::~Disco()
+{
 
 }
 
-int Disco::Formatar(){}
+int Disco::Formatar()
+{
 
-int Disco::Desfragmentar(){}
+}
 
-int Disco::Recuperar(){}
+int Disco::Desfragmentar()
+{
+
+}
+
+int Disco::Recuperar()
+{
+
+}
 
 int Disco::getNumSetores()
 {

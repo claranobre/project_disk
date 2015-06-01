@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "disco.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,9 +16,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void AbrirDialog();
+    void Plotar(); //Plotar gráfico
 
 private:
     Ui::MainWindow *ui;
+    Disco hd;
+
 };
 
 #endif // MAINWINDOW_H
