@@ -17,7 +17,7 @@ private:
     //char disk[tamanho];
 
 public:
-    Disco();
+    Disco(int quantSetores, int tamSetores, int tamDisco);
     ~Disco();
     int Formatar();
     /**

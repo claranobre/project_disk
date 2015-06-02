@@ -18,9 +18,14 @@ public:
     void AbrirDialog();
     void Plotar(); //Plotar gráfico
 
+private slots:
+    void on_salvar_clicked();
+
 private:
     Ui::MainWindow *ui;
-    Disco hd;
+    Disco *hd;
+    QString nome;
+    QString valor;
 
 };
 

@@ -1,8 +1,19 @@
 #include "disco.h"
+#include <iostream>
 
-Disco::Disco()
+
+Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
 {
+    this->numSetores = quantSetores;
+    this->tamSetores = tamSetores;
+    this->tamanho = tamDisco;
 
+    /*
+    for(int i = 0; i<tamanho; i++){
+        Setor *novo = new Setor();
+        this->cluster.Insert(i, novo);
+    }*/
+   // std::cout<<cluster.Size();
 }
 
 Disco::~Disco()
