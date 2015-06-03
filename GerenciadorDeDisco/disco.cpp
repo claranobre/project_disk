@@ -7,18 +7,32 @@ Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
     this->numSetores = quantSetores;
     this->tamSetores = tamSetores;
     this->tamanho = tamDisco;
+    this->livre = tamDisco;
 
-    /*
+    // Inicializando o cluster
     for(int i = 0; i<tamanho; i++){
-        Setor *novo = new Setor();
+        Setor *novo = new Setor(i);
         this->cluster.Insert(i, novo);
-    }*/
-   // std::cout<<cluster.Size();
+    }
+
+    // Inicializando o pool
+    Setor *novo = new Setor(0, 0, quantSetores-1);
+    pool.Insert(0, novo);
 }
 
 Disco::~Disco()
 {
 
+}
+
+int Disco::Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome)
+{
+    if(isFree(tamValue)){
+
+    }else{
+        cout<<"Não tem espaço";
+        return 0;
+    }
 }
 
 int Disco::getNumSetores()
@@ -94,4 +108,9 @@ int Disco::Desfragmentar()
 int Disco::Recuperar()
 {
 
+}
+
+// retorna se tem espaço suficiente para colocar o dado
+bool Disco::isFree(int tam){
+    return livre>=tam;
 }

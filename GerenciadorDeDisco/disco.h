@@ -10,6 +10,7 @@ private:
     int numSetores;
     int tamSetores;
     int tamanho;
+    int livre;
 
     Lista<File*> info;
     Lista<Setor*> cluster;
@@ -19,6 +20,9 @@ private:
 public:
     Disco(int quantSetores, int tamSetores, int tamDisco);
     ~Disco();
+
+    int Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome);
+
     int Formatar();
     /**
      * Fragmenta o Disco, pegando espaços vazios e preenchendo com dados mais próximos
@@ -26,6 +30,7 @@ public:
      * @param posição do dado a ser inserido
      * @return    Disco vazio
      */
+
     int Desfragmentar();
     /**
      * Recuperar um elemento já apagado
@@ -47,6 +52,7 @@ public:
     void setCluster(Lista<Setor *> &value);
     Lista<Setor *> getPool();
     void setPool(Lista<Setor *> &value);
+    bool isFree(int tam);
 };
 
 #endif // DISCO_H

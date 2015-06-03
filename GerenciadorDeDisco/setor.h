@@ -12,19 +12,18 @@ private:
     int id;
     int inicio;
     int fim;
-    Setor* prox;
+    //Setor* prox; comentei pq esse prox está na lista
 
 public:
-    Setor();
+    Setor(int id);
+    Setor(int id, int inicio, int fim);
     ~Setor();
 
     int getInicio();
     void setInicio(int value);
+
     int getFim();
     void setFim(int value);
-
-    Setor *getProx();
-    void setProx(Setor *value);
 
     int getId();
     void setId(int value);
