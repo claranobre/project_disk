@@ -1,8 +1,13 @@
 #include "setor.h"
 
-Setor::Setor()
-{
+Setor::Setor(int id){
+    this->id = id;
+}
 
+Setor::Setor(int id, int inicio, int fim){
+    this->inicio = inicio;
+    this->fim = fim;
+    this->id = id;
 }
 
 Setor::~Setor()
@@ -28,16 +33,6 @@ int Setor::getFim()
 void Setor::setFim(int value)
 {
     fim = value;
-}
-
-Setor *Setor::getProx()
-{
-    return prox;
-}
-
-void Setor::setProx(Setor *value)
-{
-    prox = value;
 }
 
 int Setor::getId()

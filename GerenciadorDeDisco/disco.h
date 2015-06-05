@@ -10,6 +10,7 @@ private:
     int numSetores;
     int tamSetores;
     int tamanho;
+    int livre;
 
     Lista<File*> info;
     Lista<Setor*> cluster;
@@ -19,11 +20,17 @@ private:
 public:
     Disco(int quantSetores, int tamSetores, int tamDisco);
     ~Disco();
+<<<<<<< HEAD
     /**
       *Formata o disco apagando todo o seu conteúdo como um todo, sem a possibilidade de recuperação de nenhum dado
       @param tamDisco tamanho do disco total
       @return Disco vazio
     */
+=======
+
+    int Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome);
+
+>>>>>>> 122aaa46867113ab715778eea1206abddf5e55c1
     int Formatar();
     /**
      * Desfragmenta o Disco, pegando espaços vazios e preenchendo com dados mais próximos
@@ -31,6 +38,7 @@ public:
      * @param posição do dado a ser inserido
      * @return    Disco vazio
      */
+
     int Desfragmentar();
     /**
      * Recuperar um elemento já apagado
@@ -89,6 +97,7 @@ public:
     * @param value
     */
     void setPool(Lista<Setor *> &value);
+    bool isFree(int tam);
 };
 
 #endif // DISCO_H

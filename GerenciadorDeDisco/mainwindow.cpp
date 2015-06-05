@@ -21,8 +21,8 @@ MainWindow::~MainWindow()
 void MainWindow::AbrirDialog()
 {
     Dialog dialog;
-    hd = new Disco(dialog.getQuantSetor(), dialog.getTamSetor(), dialog.getTamDisco());
     dialog.exec();
+    hd = new Disco(dialog.getQuantSetor(), dialog.getTamSetor(), dialog.getTamDisco());
     Plotar();
 }
 
@@ -44,9 +44,12 @@ void MainWindow::on_salvar_clicked()
    nome = ui->CampoNome->text();
    valor = ui->CampoValor->text();
 
-   char *strValor = new char[valor.size()];
-   copy(valor.toStdString().begin(), valor.toStdString().end(), strValor);
+   const char *strNome = nome.toStdString().c_str();
+   const char *strValor = valor.toStdString().c_str();
+   hd->Salvar(strValor, valor.size(), strNome, nome.size());
 
+/*
    char *strNome = new char[nome.size()];
    copy(nome.toStdString().begin(), nome.toStdString().end(), strNome);
+   */
 }

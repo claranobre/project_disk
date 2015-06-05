@@ -52,7 +52,7 @@ Lista<type>& Lista<type>::operator=(const Lista &l) {
 
 //todos os métodos de com "int pos" funcionam como vetor (elementos de 0 até tamanho - 1)
 template <class type>
-int Lista<type>::Size() {return tam;};
+int Lista<type>::Size() {return tam;}
 
 template <class type>
 bool Lista<type>::GetElem(int pos, type &get) const { //retorna se posição é válida. &get armazenará valor
@@ -65,7 +65,7 @@ bool Lista<type>::GetElem(int pos, type &get) const { //retorna se posição é 
         return true;
     }
     return false;
-};
+}
 
 /*template <class type>
 bool Lista<type>::GetElem(type &get) const { //retorna se lista ou pilha possui elemento top. &get armazenará valor
@@ -120,7 +120,7 @@ bool Lista<type>::Insert(int pos, type val) { //retorna se inserção OK. Insere
     }
     return false;
 }
-/*
+
 template <class type>
 bool Lista<type>::Insert(type val) { //retorna se inserção OK. Insere val em filas e pilhas
     if (tam >= 0 && (bhvr == PILHA || bhvr == FILA)) {
@@ -136,7 +136,7 @@ bool Lista<type>::Insert(type val) { //retorna se inserção OK. Insere val em f
     }
     return false;
 }
-*/
+
 template <class type>
 bool Lista<type>::Remove(unsigned int pos) { //retorna se remoção OK. Não retorna valor. Funciona para listas
     if (pos >= 0 && pos < tam && bhvr == LISTASIMPLES) {
@@ -152,7 +152,7 @@ bool Lista<type>::Remove(unsigned int pos) { //retorna se remoção OK. Não ret
         return true;
     }
     return false;
-};
+}
 /*
 template <class type>
 bool Lista<type>::Remove() {
@@ -197,7 +197,7 @@ bool Lista<type>::Remove(int pos, type &get) { //retorna se remoção OK. &get a
         return true;
     }
     return false;
-};
+}
 /*
 template <class type>
 bool Lista<type>::Remove(type &get) { //se usar referência e type = int vai dar conflito com Remove(int pos)
