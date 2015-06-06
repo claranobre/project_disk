@@ -13,8 +13,6 @@ enum BEHAVIOR {LISTASIMPLES, PILHA, FILA}; //0, 1, 2
 *
 * \brief Classe genérica de Lista encadeadas, pode se comportar como Lista simples, fila ou pilha.
 *
-*
-*
 */
 template <class type>
 class Lista {

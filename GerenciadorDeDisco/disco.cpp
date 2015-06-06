@@ -22,7 +22,11 @@ Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
 
 Disco::~Disco()
 {
-
+    for(int i = tamanho; i <= 0; i--){
+        this->cluster.Remove(i,0);
+        this->pool.Remove(i,0);
+        Setor *novo = new Setor(0,0,quantSetores-1);
+    }
 }
 
 int Disco::Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome)
@@ -93,11 +97,20 @@ Lista<Setor *> Disco::getPool()
 void Disco::setPool( Lista<Setor *> &value)
 {
     pool = value;
+    int count = 0;
+    this->value.getTamanho();
+        while(value != nullptr){
+            ++count;
+            value = value->next;
+        }
+        return count;
 }
-
 int Disco::Formatar()
 {
-
+    for(int i = tamanho; i <= 0; i--){
+    this->cluster.Remove(i);
+    this->pool.Remove(i);
+    }
 }
 
 int Disco::Desfragmentar()

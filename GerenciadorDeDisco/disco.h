@@ -20,17 +20,18 @@ private:
 public:
     Disco(int quantSetores, int tamSetores, int tamDisco);
     ~Disco();
-<<<<<<< HEAD
+
+    /**
+    * Função para salvar as informações do arquivo
+    * @param strValue, tamValue, strNome, tamNome
+    * return tamanho do arquivo, nome
+    */
+    int Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome);
     /**
       *Formata o disco apagando todo o seu conteúdo como um todo, sem a possibilidade de recuperação de nenhum dado
       @param tamDisco tamanho do disco total
       @return Disco vazio
     */
-=======
-
-    int Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome);
-
->>>>>>> 122aaa46867113ab715778eea1206abddf5e55c1
     int Formatar();
     /**
      * Desfragmenta o Disco, pegando espaços vazios e preenchendo com dados mais próximos
@@ -38,7 +39,6 @@ public:
      * @param posição do dado a ser inserido
      * @return    Disco vazio
      */
-
     int Desfragmentar();
     /**
      * Recuperar um elemento já apagado
@@ -97,6 +97,11 @@ public:
     * @param value
     */
     void setPool(Lista<Setor *> &value);
+    /**
+    * Função para verificar se o disco tem espaço para receber o dado
+    * @param tam
+    * @return retorna verdadeiro ou falso
+    */
     bool isFree(int tam);
 };
 
