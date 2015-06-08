@@ -29,7 +29,7 @@ public:
 
     /**
      * Destrutor padrão
-     * /
+     */
     ~Disco();
 
     /**
@@ -83,23 +83,11 @@ public:
     int getNumSetores();
 
     /**
-      *Função set para indicar a quantidade de setores existentes no disco
-      *@param quantSetores
-    */
-    void setNumSetores(int value);
-
-    /**
      * Função para captar o tamanho do disco
      * @param tamDisco
      * @return Tamanho total do disco (quantidade de setor * tamanho do setor)
     */
     int getTamanho();
-
-    /**
-    * Função para setar o tamanho do disco
-    * @param tamDisco
-    */
-    void setTamanho(int value);
 
     /**
     * Função para captar o tamanho de cada setor
@@ -108,11 +96,6 @@ public:
     */
     int getTamSetores();
 
-    /**
-    * Função para pegar o valor do tamanho do setor
-    * @param value
-    */
-    void setTamSetores(int value);
     Lista<File *> getInfo();
 
     /**
@@ -120,6 +103,7 @@ public:
     * @param value
     */
     void setInfo(Lista<File *> &value);
+
     Lista<Setor *> getCluster();
 
     /**
@@ -127,6 +111,7 @@ public:
     * @param value
     */
     void setCluster(Lista<Setor *> &value);
+
     Lista<Setor *> getPool();
 
     /**

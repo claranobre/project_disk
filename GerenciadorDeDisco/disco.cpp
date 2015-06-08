@@ -23,13 +23,14 @@ Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
     InicializarArray(disk, tamDisco);
 }
 
+// Falta terminar de consertar
 Disco::~Disco()
 {
-    for(int i = tamanho; i <= 0; i--){
-        this->cluster.Remove(i,0);
-        this->pool.Remove(i,0);
-        Setor *novo = new Setor(0,0,quantSetores-1);
+    for(int i = tamanho-1; i >= 0; i--){
+        this->cluster.Remove(i);
+        this->pool.Remove(i);
     }
+    livre = numSetores;
 }
 
 int Disco::Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome)
@@ -89,7 +90,6 @@ void Disco::InicializarArray(int array[], int tamanho)
     for(int i=0; i<tamanho; i++){
         array[i] = 0;
     }
-
 }
 
 void Disco::InicializarArray(char array[], int tamanho)
@@ -97,7 +97,6 @@ void Disco::InicializarArray(char array[], int tamanho)
     for(int i=0; i<tamanho; i++){
         array[i] = '0';
     }
-
 }
 
 int Disco::getNumSetores()
@@ -105,29 +104,14 @@ int Disco::getNumSetores()
     return numSetores;
 }
 
-void Disco::setNumSetores(int value)
-{
-    numSetores = value;
-}
-
 int Disco::getTamanho()
 {
     return tamanho;
 }
 
-void Disco::setTamanho(int value)
-{
-    tamanho = value;
-}
-
 int Disco::getTamSetores()
 {
     return tamSetores;
-}
-
-void Disco::setTamSetores(int value)
-{
-    tamSetores = value;
 }
 
 Lista<File *> Disco::getInfo()
@@ -155,23 +139,28 @@ Lista<Setor *> Disco::getPool()
     return pool;
 }
 
+// erros de compilação e de lógica
 void Disco::setPool( Lista<Setor *> &value)
 {
-    pool = value;
+ /*   pool = value;
     int count = 0;
     this->value.getTamanho();
         while(value != nullptr){
             ++count;
             value = value->next;
         }
-        return count;
+        return count;*/
 }
+
+
 int Disco::Formatar()
 {
-    for(int i = tamanho; i <= 0; i--){
+    for(int i = tamanho; i <= 0; i--){ //For está errado
     this->cluster.Remove(i);
     this->pool.Remove(i);
     }
+    // falta atualivar var 'livre'
+    // falta limpar 'info'
 }
 
 int Disco::Desfragmentar()

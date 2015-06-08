@@ -39,7 +39,6 @@ void MainWindow::Plotar()
         grafico.push_back("]");
     }
     ui->grafico->setText(grafico);
-    ui->grafico->setHtml("<h1>Teste</h1>");
 }
 
 void MainWindow::on_salvar_clicked()
