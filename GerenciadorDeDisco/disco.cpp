@@ -74,6 +74,7 @@ int Disco::Salvar(const char *strValue, int tamValue, const char *strNome, int t
         }
         std::cout<<contStr;
 
+        //File *novoArquivo = new File();
         //falta atualizar o pool e o file
         return 1;
 

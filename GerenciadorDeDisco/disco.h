@@ -16,7 +16,6 @@ private:
     Lista<Setor*> cluster;
     Lista<Setor*> pool;
 
-
 public:
     char *disk; // vai ficar público por enquanto, mas ele é privado
     /**
@@ -52,6 +51,8 @@ public:
      * @param tamanho do array
      */
     void InicializarArray(char array[], int tamanho);
+
+    void AtualizarPool(Lista<Setor*> pool);
 
     /**
       *Formata o disco apagando todo o seu conteúdo como um todo, sem a possibilidade de recuperação de nenhum dado

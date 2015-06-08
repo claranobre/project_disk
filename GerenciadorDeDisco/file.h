@@ -10,7 +10,7 @@ class Setor;
 class File
 {
 public:
-    File();
+    File(string nome, int tamanho, int cluster[]);
     ~File();
     string getNome();
     void setNome( string &value);
@@ -27,8 +27,8 @@ public:
 private:
     string nome;
     int tamanho;
-    File* prox;
-    Lista<Setor*> cluster;
+    //File* prox;
+    int *cluster;
 };
 
 #endif // FILE_H
