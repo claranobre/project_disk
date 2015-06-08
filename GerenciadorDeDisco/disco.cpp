@@ -30,10 +30,11 @@ Disco::~Disco()
         this->cluster.Remove(i);
         this->pool.Remove(i);
     }
+    //remover info
     livre = numSetores;
 }
 
-int Disco::Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome)
+int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNome)
 {
     // Guarda a quantidade de setores necessários para armazenar o dado
     int setoresNecessarios = ceil ((float)tamValue/tamSetores);
@@ -72,9 +73,8 @@ int Disco::Salvar(const char *strValue, int tamValue, const char *strNome, int t
                 contStr++;
             }
         }
-        std::cout<<contStr;
 
-        //File *novoArquivo = new File();
+        //File *novoArquivo = new File(strNome, tamNome, setoresNecessarios);
         //falta atualizar o pool e o file
         return 1;
 
@@ -156,7 +156,7 @@ void Disco::setPool( Lista<Setor *> &value)
 
 int Disco::Formatar()
 {
-    for(int i = tamanho; i <= 0; i--){ //For está errado
+    for(int i = tamanho; i >= 0; i--){ //For está errado
     this->cluster.Remove(i);
     this->pool.Remove(i);
     }

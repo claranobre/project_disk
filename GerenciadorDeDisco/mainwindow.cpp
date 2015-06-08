@@ -46,14 +46,8 @@ void MainWindow::on_salvar_clicked()
    nome = ui->CampoNome->text();
    valor = ui->CampoValor->text();
 
-   const char *strNome = nome.toStdString().c_str();
    const char *strValor = valor.toStdString().c_str();
-   if(hd->Salvar(strValor, valor.size(), strNome, nome.size())){
+   if(hd->Salvar(strValor, valor.size(), nome.toStdString(), nome.size())){
         Plotar();
    }
-
-/*
-   char *strNome = new char[nome.size()];
-   copy(nome.toStdString().begin(), nome.toStdString().end(), strNome);
-   */
 }

@@ -36,7 +36,7 @@ public:
     * @param strValue, tamValue, strNome, tamNome
     * return tamanho do arquivo, nome
     */
-    int Salvar(const char *strValue, int tamValue, const char *strNome, int tamNome);
+    int Salvar(const char *strValue, int tamValue, string strNome, int tamNome);
 
     /**
      * Inicializa um vetor com todos seus indices com valores zero
