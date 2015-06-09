@@ -153,34 +153,21 @@ bool Lista<type>::Remove(unsigned int pos) { //retorna se remoção OK. Não ret
     }
     return false;
 }
-/*
+
 template <class type>
-bool Lista<type>::Remove() {
-    if (tam > 0 && head->next != NULL) {
-        if (bhvr == PILHA) {
-            node *temp = head->next;
-            head->next = temp->next;
-            delete temp;
-            tam--;
-            return true;
-        }
-        else if (bhvr == FILA) {
-            node *bef = head; //before
-            node *fow = head->next; //foward
-            while (fow->next != NULL) {
-                fow = fow->next;
-                bef = bef->next;
-            }
-            delete fow;
-            bef->next = NULL;
-            tam--;
-            return true;
-        }
-        return false;
+bool Lista<type>::RemoveAll() {
+    node *temp = head->next;
+    node *del = temp;
+    while (temp != NULL) {
+        del = temp;
+        delete del;
+        temp = temp->next;
     }
-    return false;
+    head->next = NULL;
+    tam = 0;
+    return true;
 }
-*/
+
 template <class type>
 bool Lista<type>::Remove(int pos, type &get) { //retorna se remoção OK. &get armazenará valor da posição
     if (pos >= 0 && pos < tam && bhvr == LISTASIMPLES) {

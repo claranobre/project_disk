@@ -124,11 +124,10 @@ public:
     bool Remove(unsigned int pos);
 
     /**
-    * Remove valor da fila/pilha
-    * Só funciona para filas ou pilhas.
-    * \return Retorna se removeu o elemento
+    * Remove todos os elementos, limpa a lista
+    * \return Retorna se removeu tudo
     */
-    //bool Remove();
+    bool RemoveAll();
 
     /**
     * Remove valor de uma posição da lista, retornando-o por referência

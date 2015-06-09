@@ -46,7 +46,11 @@ void MainWindow::on_salvar_clicked()
    nome = ui->CampoNome->text();
    valor = ui->CampoValor->text();
 
-   const char *strValor = valor.toStdString().c_str();
+   QByteArray aux;
+   aux = valor.toLatin1();
+   const char *strValor = aux.data();
+   //valor.toStdString();
+
    if(hd->Salvar(strValor, valor.size(), nome.toStdString(), nome.size())){
         Plotar();
    }

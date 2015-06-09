@@ -31,9 +31,9 @@ private slots:
 private:
     Ui::Dialog *ui;
 
-    int tamSetor;
-    int quantSetor;
-    int tamDisco;
+    int tamSetor = 3;
+    int quantSetor = 5;
+    int tamDisco = 15;
     QString tamDiscoStr;
 };
 

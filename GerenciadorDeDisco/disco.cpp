@@ -1,7 +1,7 @@
 #include "disco.h"
 #include <iostream>
 #include <math.h>
-
+#include <QMessageBox>
 Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
 {
     this->numSetores = quantSetores;
@@ -16,7 +16,7 @@ Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
     }
 
     // Inicializando o pool no intervalo [1, quantSetores]
-    Setor *novo = new Setor(0, 1, quantSetores);
+    Setor *novo = new Setor(0, 0, quantSetores);
     pool.Insert(0, novo);
 
     this->disk = new char[tamDisco];
@@ -39,6 +39,7 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
     // Guarda a quantidade de setores necessários para armazenar o dado
     int setoresNecessarios = ceil ((float)tamValue/tamSetores);
 
+    //Guarda o id dos setores onde serão inseridos
     int setores[setoresNecessarios];
     InicializarArray(setores, setoresNecessarios);
 
@@ -65,26 +66,29 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
             }
             contPool++;
         }
-        int contStr = 0;
-        for(int i = 0; i< setoresNecessarios; i++){// percorre os setores
-            for(int j = 0; j<tamSetores; j++){ // percorre as celulas dos setores
-                int pos = ((setores[i]-1)*tamSetores) + j;
-                disk[pos] = strValue[contStr];
-                contStr++;
+
+        int pos;
+        int id = 0;
+        //cout<<"Tam: "<<tamValue<<endl;
+        for(int i = 0; i<tamValue; i++){
+            if(((i%tamSetores) == 0) && (i>0)){
+                id++;
             }
+            pos = ((setores[id])*tamSetores) + (i%tamSetores);
+            disk[pos] = strValue[i];
         }
 
-
-        //File *novoArquivo = new File(strNome, tamNome, setores);
-        //info.Insert(info.Size(), novoArquivo);
+        File *novoArquivo = new File(strNome, tamNome, setores);
+        info.Insert(info.Size(), novoArquivo);
 
         AtualizarPool();
-        //falta atualizar o pool
+        livre = livre - setoresNecessarios;
         return 1;
 
     }else{
-        // depois colocar um alert aqui para o usuario ver
-        std::cout<<"Não tem espaço";
+        QMessageBox msgBox;
+        msgBox.setText("Não tem espaço suficiente.");
+        msgBox.exec();
         return 0;
     }
 }
@@ -110,16 +114,17 @@ void Disco::AtualizarPool()
     int inicio = 0;
     int igual = 0;
     int cont = 0;
+
     for(int i = 0; i<numSetores; i++){
-        if(disk[i*tamSetores] == 0){
+        if(disk[i*tamSetores] == '0'){
             if(igual == 0){
                 igual = 1;
-                inicio = (i+1);
+                inicio = i;
             }
         } else{
             if(igual == 1){
-                vazio[inicio][0] = inicio;
-                vazio[inicio][1] = (i-1);
+                vazio[cont][0] = inicio;
+                vazio[cont][1] = (i-1);
                 igual = 0;
                 cont ++;
             }
@@ -127,17 +132,20 @@ void Disco::AtualizarPool()
 
         if(i == (numSetores-1)){ // Testando se é o fim do 'for'
             if(igual == 1){
-                vazio[inicio][0] = inicio;
-                vazio[inicio][1] = (i-1);
+                vazio[cont][0] = inicio;
+                vazio[cont][1] = (i);
                 igual = 0;
                 cont ++;
             }
         }
     }
 
+    pool.RemoveAll();
+
     for(int i = 0; i<cont; i++){
-        std::cout<<vazio[i][0]<<"~"<<vazio[i][1]<<std::endl;
-        //Setor *novo = new Setor(i, vazio[i][0], vazio[i][1]);
+        //cout<<vazio[i][0]<<"~"<<vazio[i][1]<<endl;
+        Setor *novo = new Setor(i, vazio[i][0], vazio[i][1]);
+        pool.Insert(i, novo);
     }
 }
 

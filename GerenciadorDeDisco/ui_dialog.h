@@ -28,7 +28,7 @@ class Ui_Dialog
 public:
     QDialogButtonBox *buttonBox;
     QLabel *label;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QFormLayout *formLayout;
     QLabel *quantSetor;
     QSpinBox *valQuantSetor;
@@ -53,13 +53,13 @@ public:
         QFont font;
         font.setPointSize(15);
         label->setFont(font);
-        widget = new QWidget(Dialog);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(40, 60, 213, 83));
-        formLayout = new QFormLayout(widget);
+        layoutWidget = new QWidget(Dialog);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(40, 60, 213, 83));
+        formLayout = new QFormLayout(layoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        quantSetor = new QLabel(widget);
+        quantSetor = new QLabel(layoutWidget);
         quantSetor->setObjectName(QStringLiteral("quantSetor"));
         QFont font1;
         font1.setPointSize(12);
@@ -67,36 +67,41 @@ public:
 
         formLayout->setWidget(0, QFormLayout::LabelRole, quantSetor);
 
-        valQuantSetor = new QSpinBox(widget);
+        valQuantSetor = new QSpinBox(layoutWidget);
         valQuantSetor->setObjectName(QStringLiteral("valQuantSetor"));
         valQuantSetor->setFont(font1);
+        valQuantSetor->setMinimum(1);
+        valQuantSetor->setValue(5);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, valQuantSetor);
 
-        tamSetor = new QLabel(widget);
+        tamSetor = new QLabel(layoutWidget);
         tamSetor->setObjectName(QStringLiteral("tamSetor"));
         tamSetor->setFont(font1);
 
         formLayout->setWidget(1, QFormLayout::LabelRole, tamSetor);
 
-        valTamSetor = new QSpinBox(widget);
+        valTamSetor = new QSpinBox(layoutWidget);
         valTamSetor->setObjectName(QStringLiteral("valTamSetor"));
         valTamSetor->setFont(font1);
+        valTamSetor->setMinimum(1);
+        valTamSetor->setValue(3);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, valTamSetor);
 
-        tamDisco = new QLabel(widget);
+        tamDisco = new QLabel(layoutWidget);
         tamDisco->setObjectName(QStringLiteral("tamDisco"));
         tamDisco->setFont(font1);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, tamDisco);
 
-        valTamDisco = new QLabel(widget);
+        valTamDisco = new QLabel(layoutWidget);
         valTamDisco->setObjectName(QStringLiteral("valTamDisco"));
         valTamDisco->setFont(font1);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, valTamDisco);
 
+        layoutWidget->raise();
         buttonBox->raise();
         label->raise();
 

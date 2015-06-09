@@ -47,7 +47,7 @@
     <string>Simulador de disco</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -76,6 +76,12 @@
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>5</number>
+      </property>
      </widget>
     </item>
     <item row="1" column="0">
@@ -96,6 +102,12 @@
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>3</number>
       </property>
      </widget>
     </item>
