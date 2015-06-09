@@ -9,7 +9,7 @@ Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
     this->tamanho = tamDisco;
     this->livre = quantSetores;
 
-    // Inicializando o cluster
+    //Inicializando o cluster
     for(int i = 0; i<tamanho; i++){
         Setor *novo = new Setor(i);
         this->cluster.Insert(i, novo);
@@ -69,7 +69,6 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
 
         int pos;
         int id = 0;
-        //cout<<"Tam: "<<tamValue<<endl;
         for(int i = 0; i<tamValue; i++){
             if(((i%tamSetores) == 0) && (i>0)){
                 id++;
@@ -85,7 +84,7 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
         livre = livre - setoresNecessarios;
         return 1;
 
-    }else{
+    } else{ // envia uma msg se não tiver espaço suficiente
         QMessageBox msgBox;
         msgBox.setText("Não tem espaço suficiente.");
         msgBox.exec();
@@ -101,6 +100,7 @@ void Disco::InicializarArray(int array[], int tamanho)
     }
 }
 
+//Inicializa um array com o valor 0
 void Disco::InicializarArray(char array[], int tamanho)
 {
     for(int i=0; i<tamanho; i++){
@@ -108,9 +108,10 @@ void Disco::InicializarArray(char array[], int tamanho)
     }
 }
 
+// Atualiza o pool com os novos valores
 void Disco::AtualizarPool()
 {
-    int vazio[numSetores][2];
+    int vazio[numSetores][2];// [0] tem o inicio, [1] tem o final
     int inicio = 0;
     int igual = 0;
     int cont = 0;
@@ -143,7 +144,6 @@ void Disco::AtualizarPool()
     pool.RemoveAll();
 
     for(int i = 0; i<cont; i++){
-        //cout<<vazio[i][0]<<"~"<<vazio[i][1]<<endl;
         Setor *novo = new Setor(i, vazio[i][0], vazio[i][1]);
         pool.Insert(i, novo);
     }
@@ -189,28 +189,15 @@ Lista<Setor *> Disco::getPool()
     return pool;
 }
 
-// erros de compilação e de lógica
 void Disco::setPool( Lista<Setor *> &value)
 {
- /*   pool = value;
-    int count = 0;
-    this->value.getTamanho();
-        while(value != nullptr){
-            ++count;
-            value = value->next;
-        }
-        return count;*/
+
 }
 
 
 int Disco::Formatar()
 {
-    for(int i = tamanho; i >= 0; i--){ //For está errado
-    this->cluster.Remove(i);
-    this->pool.Remove(i);
-    }
-    // falta atualivar var 'livre'
-    // falta limpar 'info'
+
 }
 
 int Disco::Desfragmentar()

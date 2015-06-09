@@ -18,17 +18,12 @@ string File::getNome()
     return nome;
 }
 
-void File::setNome( string &value)
-{
-    nome = value;
-}
-
 int File::getTamanho()
 {
     return tamanho;
 }
 
-void File::setTamanho(int value)
+int File::getCluster(int i)
 {
-    tamanho = value;
+   return cluster[i];
 }

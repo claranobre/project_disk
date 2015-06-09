@@ -18,6 +18,7 @@ private:
 
 public:
     char *disk; // vai ficar público por enquanto, mas ele é privado
+
     /**
      * Construtor do disco
      * @param quantSetores Quantidade de setores
@@ -99,27 +100,9 @@ public:
 
     Lista<File *> getInfo();
 
-    /**
-    * Função para adicionar informação do arquivo em seus setores de destino
-    * @param value
-    */
-    void setInfo(Lista<File *> &value);
-
     Lista<Setor *> getCluster();
 
-    /**
-    * Função para indicar quais setores contem informações
-    * @param value
-    */
-    void setCluster(Lista<Setor *> &value);
-
     Lista<Setor *> getPool();
-
-    /**
-    * Função para indicar quais setores estão vazios
-    * @param value
-    */
-    void setPool(Lista<Setor *> &value);
 
     /**
     * Função para verificar se o disco tem espaço para receber o dado

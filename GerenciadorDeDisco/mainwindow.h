@@ -17,6 +17,7 @@ public:
     ~MainWindow();
     void AbrirDialog();
     void Plotar(); //Plotar gráfico
+    void Listar();
 
 private slots:
     void on_salvar_clicked();

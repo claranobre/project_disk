@@ -41,6 +41,21 @@ void MainWindow::Plotar()
     ui->grafico->setText(grafico);
 }
 
+void MainWindow::Listar()
+{
+    QString grafico;
+    int cont = 0;
+    for(int i = 0; i < hd->getNumSetores(); i++){
+        grafico.push_back("[");
+        for(int j = 0; j < hd->getTamSetores(); j++){
+            grafico.push_back(hd->disk[cont]);
+            cont++;
+        }
+        grafico.push_back("]");
+    }
+    ui->grafico->setText(grafico);
+}
+
 void MainWindow::on_salvar_clicked()
 {
    nome = ui->CampoNome->text();
