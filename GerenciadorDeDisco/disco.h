@@ -52,7 +52,7 @@ public:
      */
     void InicializarArray(char array[], int tamanho);
 
-    void AtualizarPool(Lista<Setor*> pool);
+    void AtualizarPool();
 
     /**
       *Formata o disco apagando todo o seu conteúdo como um todo, sem a possibilidade de recuperação de nenhum dado

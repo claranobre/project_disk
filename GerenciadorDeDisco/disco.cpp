@@ -74,8 +74,12 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
             }
         }
 
-        //File *novoArquivo = new File(strNome, tamNome, setoresNecessarios);
-        //falta atualizar o pool e o file
+
+        //File *novoArquivo = new File(strNome, tamNome, setores);
+        //info.Insert(info.Size(), novoArquivo);
+
+        AtualizarPool();
+        //falta atualizar o pool
         return 1;
 
     }else{
@@ -97,6 +101,43 @@ void Disco::InicializarArray(char array[], int tamanho)
 {
     for(int i=0; i<tamanho; i++){
         array[i] = '0';
+    }
+}
+
+void Disco::AtualizarPool()
+{
+    int vazio[numSetores][2];
+    int inicio = 0;
+    int igual = 0;
+    int cont = 0;
+    for(int i = 0; i<numSetores; i++){
+        if(disk[i*tamSetores] == 0){
+            if(igual == 0){
+                igual = 1;
+                inicio = (i+1);
+            }
+        } else{
+            if(igual == 1){
+                vazio[inicio][0] = inicio;
+                vazio[inicio][1] = (i-1);
+                igual = 0;
+                cont ++;
+            }
+        }
+
+        if(i == (numSetores-1)){ // Testando se é o fim do 'for'
+            if(igual == 1){
+                vazio[inicio][0] = inicio;
+                vazio[inicio][1] = (i-1);
+                igual = 0;
+                cont ++;
+            }
+        }
+    }
+
+    for(int i = 0; i<cont; i++){
+        std::cout<<vazio[i][0]<<"~"<<vazio[i][1]<<std::endl;
+        //Setor *novo = new Setor(i, vazio[i][0], vazio[i][1]);
     }
 }
 
