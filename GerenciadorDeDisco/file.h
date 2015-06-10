@@ -15,7 +15,10 @@ public:
 
     string getNome();
     int getTamanho();
-    int getCluster(int i);
+
+    int *getCluster();
+
+    int getCluster(int  );
 
 private:
     string nome;

@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dialog.h"
 #include <iostream>
-
+#include <QStandardItem>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -39,6 +39,16 @@ void MainWindow::Plotar()
         grafico.push_back("]");
     }
     ui->grafico->setText(grafico);
+
+    model = new QStandardItemModel();
+    QStringList headers;
+    headers << tr("Nome") << tr("Tamanho") << tr("Setores");
+    model->setHorizontalHeaderLabels(headers);
+    ui->tableView->setModel(model);
+    ui->tableView->setShowGrid(true);
+    ui->tableView->setAlternatingRowColors(true);
+    ui->tableView->verticalHeader()->setVisible(false);
+    ui->tableView->setSortingEnabled(true);
 }
 
 void MainWindow::Listar()
@@ -68,5 +78,14 @@ void MainWindow::on_salvar_clicked()
 
    if(hd->Salvar(strValor, valor.size(), nome.toStdString(), nome.size())){
         Plotar();
+   }
+}
+
+void MainWindow::on_excluir_clicked()
+{
+   nome = ui->CampoNome->text();
+
+   if(hd->Excluir(nome.toStdString())){
+       // atualizar interface
    }
 }

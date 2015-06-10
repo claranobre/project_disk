@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QStandardItem>
 #include <QMainWindow>
 #include "disco.h"
 
@@ -22,8 +23,11 @@ public:
 private slots:
     void on_salvar_clicked();
 
+    void on_excluir_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QStandardItemModel *model;
     Disco *hd;
     QString nome;
     QString valor;

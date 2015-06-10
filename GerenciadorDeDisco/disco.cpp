@@ -92,6 +92,35 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
     }
 }
 
+int Disco::Excluir(string nome)
+{
+    File *novo;
+    for(int i = 0; i< info.Size(); i++){
+        info.GetElem(i,novo);
+        if(novo->getNome() == nome){
+
+            int tamanho = novo->getTamanho();
+            cout<<"Tamanho: "<<tamanho<<endl;
+
+            int setoresNecessarios = ceil ((float)tamanho/tamSetores);
+            cout<<"Setores: "<<setoresNecessarios<<endl;
+
+            //int *setores = novo->getCluster(0);
+            cout<<"Aqui: "<<novo->getCluster(0);
+            for(int j = 0; j < setoresNecessarios; j++){
+                for(int k = 0; k < tamSetores; k++){
+              //      int pos = setores[j];
+                    //cout<<pos<<endl;
+                    //disk[pos] = '0';
+                }
+            }
+            AtualizarPool();
+            return 1;
+        }
+    }
+    return 0;
+}
+
 //Inicializa um array com o valor 0
 void Disco::InicializarArray(int array[], int tamanho)
 {
@@ -169,29 +198,15 @@ Lista<File *> Disco::getInfo()
     return info;
 }
 
-void Disco::setInfo( Lista<File *> &value)
-{
-    info = value;
-}
 
 Lista<Setor *> Disco::getCluster()
 {
     return cluster;
 }
 
-void Disco::setCluster( Lista<Setor *> &value)
-{
-    cluster = value;
-}
-
 Lista<Setor *> Disco::getPool()
 {
     return pool;
-}
-
-void Disco::setPool( Lista<Setor *> &value)
-{
-
 }
 
 

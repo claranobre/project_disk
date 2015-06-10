@@ -39,6 +39,8 @@ public:
     */
     int Salvar(const char *strValue, int tamValue, string strNome, int tamNome);
 
+    int Excluir(string Nome);
+
     /**
      * Inicializa um vetor com todos seus indices com valores zero
      * @param array que será inicializado

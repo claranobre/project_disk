@@ -6,6 +6,7 @@ File::File(string nome, int tamanho, int cluster[])
     this->tamanho = tamanho;
     this->cluster = new int[tamanho];
     this->cluster = cluster;
+    cout<<"ei: "<<this->cluster[0]<<endl;
 }
 
 File::~File()
@@ -22,8 +23,13 @@ int File::getTamanho()
 {
     return tamanho;
 }
+int *File::getCluster()
+{
+    return cluster;
+}
 
 int File::getCluster(int i)
 {
-   return cluster[i];
+    //cout<<cluster[0]<<endl;
+    return cluster[i];
 }
