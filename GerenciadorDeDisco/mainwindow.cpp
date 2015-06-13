@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "dialog.h"
 #include <iostream>
-#include <QStandardItem>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -79,4 +78,9 @@ void MainWindow::on_formatar_clicked()
     if(hd->Formatar()){
         Plotar();
     }
+}
+
+void MainWindow::on_buscar_clicked()
+{
+
 }

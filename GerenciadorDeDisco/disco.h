@@ -39,8 +39,16 @@ public:
     */
     int Salvar(const char *strValue, int tamValue, string strNome, int tamNome);
 
+    /**
+     * @param Nome do arquivo que será excluido
+     * @return 1 se exclusão foi correta ou 0 caso não tenha excluido
+     */
     int Excluir(string Nome);
 
+    /**
+     *
+     * @return html para ser inserido no widget
+     */
     QString Listar();
 
     /**
@@ -57,13 +65,15 @@ public:
      */
     void InicializarArray(char array[], int tamanho);
 
+    /**
+     * Atualiza o pool após alguma modificação no disco (add, delete, format)
+     */
     void AtualizarPool();
 
     /**
-      *Formata o disco apagando todo o seu conteúdo como um todo, sem a possibilidade de recuperação de nenhum dado
-      @param tamDisco tamanho do disco total
-      @return Disco vazio
-    */
+     * Formata o disco apagando todo o seu conteúdo como um todo, sem a possibilidade de recuperação de nenhum dado
+     * @return 1 se o disco foi formatado corretamente ou 0 caso tenha erro
+     */
     int Formatar();
 
     /**

@@ -26,6 +26,8 @@ private slots:
 
     void on_formatar_clicked();
 
+    void on_buscar_clicked();
+
 private:
     Ui::MainWindow *ui;
     Disco *hd;
