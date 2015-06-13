@@ -100,18 +100,14 @@ int Disco::Excluir(string nome)
         if(novo->getNome() == nome){
 
             int tamanho = novo->getTamanho();
-            cout<<"Tamanho: "<<tamanho<<endl;
 
             int setoresNecessarios = ceil ((float)tamanho/tamSetores);
-            cout<<"Setores: "<<setoresNecessarios<<endl;
 
-            //int *setores = novo->getCluster(0);
-            cout<<"Aqui: "<<novo->getCluster(0);
             for(int j = 0; j < setoresNecessarios; j++){
                 for(int k = 0; k < tamSetores; k++){
-              //      int pos = setores[j];
-                    //cout<<pos<<endl;
-                    //disk[pos] = '0';
+                    int pos = (novo->getCluster(j)*tamSetores)+k;
+                    cout<<pos<<endl;
+                    disk[pos] = '0';
                 }
             }
             AtualizarPool();
@@ -209,10 +205,15 @@ Lista<Setor *> Disco::getPool()
     return pool;
 }
 
-
+// depois testar
 int Disco::Formatar()
 {
-
+    for(int i = tamanho; i >= 0; i--){
+    this->cluster.Remove(   i);
+    this->pool.Remove(i);
+    }
+    //livre = quantSetores;
+    // falta limpar 'info'
 }
 
 int Disco::Desfragmentar()

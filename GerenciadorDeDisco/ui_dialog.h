@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.1
+** Created by: Qt User Interface Compiler version 5.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -41,7 +41,7 @@ public:
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName(QStringLiteral("Dialog"));
-        Dialog->resize(293, 264);
+        Dialog->resize(355, 264);
         buttonBox = new QDialogButtonBox(Dialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setGeometry(QRect(20, 210, 261, 32));
@@ -55,7 +55,7 @@ public:
         label->setFont(font);
         layoutWidget = new QWidget(Dialog);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(40, 60, 213, 83));
+        layoutWidget->setGeometry(QRect(40, 60, 271, 91));
         formLayout = new QFormLayout(layoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
@@ -119,7 +119,7 @@ public:
         quantSetor->setText(QApplication::translate("Dialog", "Quantidade de Setores", 0));
         tamSetor->setText(QApplication::translate("Dialog", "Tamanho do Setor", 0));
         tamDisco->setText(QApplication::translate("Dialog", "Tamanho do Disco", 0));
-        valTamDisco->setText(QApplication::translate("Dialog", "0", 0));
+        valTamDisco->setText(QApplication::translate("Dialog", "15", 0));
     } // retranslateUi
 
 };

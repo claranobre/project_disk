@@ -74,7 +74,6 @@ void MainWindow::on_salvar_clicked()
    QByteArray aux;
    aux = valor.toLatin1();
    const char *strValor = aux.data();
-   //valor.toStdString();
 
    if(hd->Salvar(strValor, valor.size(), nome.toStdString(), nome.size())){
         Plotar();
@@ -86,6 +85,6 @@ void MainWindow::on_excluir_clicked()
    nome = ui->CampoNome->text();
 
    if(hd->Excluir(nome.toStdString())){
-       // atualizar interface
+       Plotar();
    }
 }
