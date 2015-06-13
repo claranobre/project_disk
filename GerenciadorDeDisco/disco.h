@@ -46,6 +46,13 @@ public:
     int Excluir(string Nome);
 
     /**
+     * Busca um arquivo e retorna os seus dados
+     * @param Nome que será procurado
+     * @return html que será inserido no widget
+     */
+    QString Buscar(string nome);
+
+    /**
      *
      * @return html para ser inserido no widget
      */

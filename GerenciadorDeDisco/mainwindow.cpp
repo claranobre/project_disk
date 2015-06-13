@@ -65,6 +65,8 @@ void MainWindow::on_excluir_clicked()
 
    if(hd->Excluir(nome.toStdString())){
        Plotar();
+   }else{
+       // não tem o arquivo. Mandar uma msg
    }
 }
 
@@ -82,5 +84,6 @@ void MainWindow::on_formatar_clicked()
 
 void MainWindow::on_buscar_clicked()
 {
-
+    nome = ui->CampoNome->text();
+    ui->lista->setText(hd->Buscar(nome.toStdString()));
 }

@@ -85,19 +85,18 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
 
 int Disco::Excluir(string nome)
 {
-    File *novo;
+    File *temp;
     for(int i = 0; i< info.Size(); i++){
-        info.GetElem(i,novo);
-        if(novo->getNome() == nome){
+        info.GetElem(i,temp);
+        if(temp->getNome() == nome){
 
-            int tamanho = novo->getTamanho();
+            int tamanho = temp->getTamanho();
 
             int setoresNecessarios = ceil ((float)tamanho/tamSetores);
 
             for(int j = 0; j < setoresNecessarios; j++){
                 for(int k = 0; k < tamSetores; k++){
-                    int pos = (novo->getCluster(j)*tamSetores)+k;
-                    cout<<pos<<endl;
+                    int pos = (temp->getCluster(j)*tamSetores)+k;
                     disk[pos] = '0';
                 }
             }
@@ -106,6 +105,58 @@ int Disco::Excluir(string nome)
         }
     }
     return 0;
+}
+
+QString Disco::Buscar(string nome)
+{
+    File *temp;
+    QString html;
+    for(int i = 0; i< info.Size(); i++){
+        info.GetElem(i,temp);
+        if(temp->getNome() == nome){
+            char tam[10];
+            html = "<table border=1><tr><th>Nome</th><th>Tamanho</th><th>Cluster</th></tr>";
+
+            html.push_back("<tr> <td align = 'center'>");
+            html.push_back(temp->getNome().c_str());
+            html.push_back("</td>");
+
+            html.push_back("<td align = 'center'>");
+            itoa(temp->getTamanho(),tam,10); // pega o tamanho e jogar em 'tam'
+            html.push_back( tam);
+            html.push_back("</td>");
+
+            html.push_back("<td align = 'center'>");
+            int tamanho = temp->getTamanho();
+            int setoresNecessarios = ceil ((float)tamanho/tamSetores);
+            for(int j = 0; j<setoresNecessarios; j++){
+               itoa(temp->getCluster(j), tam, 10);
+               if(j == 0)
+                   html.push_back(tam);
+               else{
+                   html.push_back(", ");
+                   html.push_back(tam);
+               }
+            }
+            html.push_back("</td></tr>");
+
+            html.push_back("<tr><td colspan='3' align='center'><b>Valor</b></td></tr>");
+
+            html.push_back("<tr><td colspan='3' align='center'>");
+
+            for(int j = 0; j < setoresNecessarios; j++){
+                for(int k = 0; k < tamSetores; k++){
+                    int pos = (temp->getCluster(j)*tamSetores)+k;
+                    html.push_back(disk[pos]);
+                }
+            }
+
+            html.push_back("</td></tr>");
+            html.push_back("<table>");
+            return html;
+        }
+    }
+    return html;
 }
 
 QString Disco::Listar()
@@ -122,7 +173,6 @@ QString Disco::Listar()
 
        html.push_back("<td align = 'center'>");
        itoa(aux->getTamanho(),tam,10); // pega o tamanho e jogar em 'tam'
-       cout<<aux->getTamanho()<<endl;
        html.push_back( tam);
        html.push_back("</td>");
 
