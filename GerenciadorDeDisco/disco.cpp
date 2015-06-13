@@ -77,7 +77,7 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
             disk[pos] = strValue[i];
         }
 
-        File *novoArquivo = new File(strNome, tamNome, setores);
+        File *novoArquivo = new File(strNome, tamValue, setores);
         info.Insert(info.Size(), novoArquivo);
 
         AtualizarPool();
@@ -115,6 +115,42 @@ int Disco::Excluir(string nome)
         }
     }
     return 0;
+}
+
+QString Disco::Listar()
+{
+   QString html = "<table border=1><tr><th>Nome</th><th>Tamanho</th><th>Cluster</th></tr>";
+   File *aux;
+   for(int i=0; i<info.Size(); i++){
+       char tam[10];
+       info.GetElem(i, aux);
+
+       html.push_back("<tr> <td align = 'center'>");
+       html.push_back(aux->getNome().c_str());
+       html.push_back("</td>");
+
+       html.push_back("<td align = 'center'>");
+       itoa(aux->getTamanho(),tam,10); // pega o tamanho e jogar em 'tam'
+       cout<<aux->getTamanho()<<endl;
+       html.push_back( tam);
+       html.push_back("</td>");
+
+       html.push_back("<td align = 'center'>");
+       int tamanho = aux->getTamanho();
+       int setoresNecessarios = ceil ((float)tamanho/tamSetores);
+       for(int j = 0; j<setoresNecessarios; j++){
+           itoa(aux->getCluster(j), tam, 10);
+           if(j == 0)
+               html.push_back(tam);
+           else{
+               html.push_back(", ");
+               html.push_back(tam);
+           }
+       }
+       html.push_back("</td></tr>");
+   }
+   html.push_back("<table>");
+   return html;
 }
 
 //Inicializa um array com o valor 0
@@ -209,9 +245,10 @@ Lista<Setor *> Disco::getPool()
 int Disco::Formatar()
 {
     for(int i = tamanho; i >= 0; i--){
-    this->cluster.Remove(   i);
+    this->cluster.Remove(i);
     this->pool.Remove(i);
     }
+    // limpar disk[]
     //livre = quantSetores;
     // falta limpar 'info'
 }

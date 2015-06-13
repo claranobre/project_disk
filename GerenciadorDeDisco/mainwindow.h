@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QStandardItem>
 #include <QMainWindow>
 #include "disco.h"
 
@@ -16,22 +15,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void AbrirDialog();
+    void AbrirDialog(); // Abre a primeira janela para conf o disco
     void Plotar(); //Plotar gráfico
-    void Listar();
+    void Listar(); //Lista os arquivos
 
 private slots:
     void on_salvar_clicked();
-
     void on_excluir_clicked();
+    void on_listar_clicked();
 
 private:
     Ui::MainWindow *ui;
-    QStandardItemModel *model;
     Disco *hd;
     QString nome;
     QString valor;
-
 };
 
 #endif // MAINWINDOW_H

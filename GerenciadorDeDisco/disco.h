@@ -3,6 +3,7 @@
 #include "file.h"
 #include "setor.h"
 #include "lista.h"
+#include <QMainWindow>
 
 class Disco {
 
@@ -40,6 +41,8 @@ public:
     int Salvar(const char *strValue, int tamValue, string strNome, int tamNome);
 
     int Excluir(string Nome);
+
+    QString Listar();
 
     /**
      * Inicializa um vetor com todos seus indices com valores zero

@@ -39,31 +39,11 @@ void MainWindow::Plotar()
         grafico.push_back("]");
     }
     ui->grafico->setText(grafico);
-
-    model = new QStandardItemModel();
-    QStringList headers;
-    headers << tr("Nome") << tr("Tamanho") << tr("Setores");
-    model->setHorizontalHeaderLabels(headers);
-    ui->tableView->setModel(model);
-    ui->tableView->setShowGrid(true);
-    ui->tableView->setAlternatingRowColors(true);
-    ui->tableView->verticalHeader()->setVisible(false);
-    ui->tableView->setSortingEnabled(true);
 }
 
 void MainWindow::Listar()
 {
-    QString grafico;
-    int cont = 0;
-    for(int i = 0; i < hd->getNumSetores(); i++){
-        grafico.push_back("[");
-        for(int j = 0; j < hd->getTamSetores(); j++){
-            grafico.push_back(hd->disk[cont]);
-            cont++;
-        }
-        grafico.push_back("]");
-    }
-    ui->grafico->setText(grafico);
+    ui->lista->setText(hd->Listar());
 }
 
 void MainWindow::on_salvar_clicked()
@@ -87,4 +67,9 @@ void MainWindow::on_excluir_clicked()
    if(hd->Excluir(nome.toStdString())){
        Plotar();
    }
+}
+
+void MainWindow::on_listar_clicked()
+{
+    Listar();
 }
