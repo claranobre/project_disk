@@ -2,11 +2,7 @@
 #define FILE_H
 
 #include "lista.h"
-#include "setor.h"
 using namespace std;
-
-//class Setor;
-
 class File
 {
 public:

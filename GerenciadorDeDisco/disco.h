@@ -14,7 +14,6 @@ private:
     int livre; // quantidade de setores livres
 
     Lista<File*> info;
-    Lista<Setor*> cluster;
     Lista<Setor*> pool;
 
 public:

@@ -89,7 +89,7 @@ public:
     * \return Retorna se conseguiu recuperar o valor.
     * @param &get receberá, por referência, próximo valor a ser retirado da pilha ou fila
     */
-   // bool GetElem(type &get) const;
+    bool GetElem(type &get) const;
 
     /**
     * Procura por um valor na lista
@@ -144,7 +144,7 @@ public:
     * \return Retorna se removeu o elemento
     * @param &get recebe, por referência, valor removido da fila/pilha
     */
-   // bool Remove(type &get);
+    bool Remove(type &get);
 
     /**
     * Imprime conteúdo da lista/fila/pilha

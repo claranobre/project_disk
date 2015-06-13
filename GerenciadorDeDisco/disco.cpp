@@ -9,13 +9,7 @@ Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
     this->tamanho = tamDisco;
     this->livre = quantSetores;
 
-    //Inicializando o cluster
-    for(int i = 0; i<tamanho; i++){
-        Setor *novo = new Setor(i);
-        this->cluster.Insert(i, novo);
-    }
-
-    // Inicializando o pool no intervalo [1, quantSetores]
+    // Inicializando o pool no intervalo [0, quantSetores]
     Setor *novo = new Setor(0, 0, quantSetores);
     pool.Insert(0, novo);
 
@@ -26,12 +20,9 @@ Disco::Disco(int quantSetores, int tamSetores, int tamDisco)
 // Falta terminar de consertar
 Disco::~Disco()
 {
-    for(int i = tamanho-1; i >= 0; i--){
-        this->cluster.Remove(i);
-        this->pool.Remove(i);
-    }
-    //remover info
-    livre = numSetores;
+    info.~Lista();
+    pool.~Lista();
+    delete disk;
 }
 
 int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNome)
@@ -231,11 +222,6 @@ Lista<File *> Disco::getInfo()
 }
 
 
-Lista<Setor *> Disco::getCluster()
-{
-    return cluster;
-}
-
 Lista<Setor *> Disco::getPool()
 {
     return pool;
@@ -244,13 +230,16 @@ Lista<Setor *> Disco::getPool()
 // depois testar
 int Disco::Formatar()
 {
-    for(int i = tamanho; i >= 0; i--){
-    this->cluster.Remove(i);
-    this->pool.Remove(i);
-    }
-    // limpar disk[]
-    //livre = quantSetores;
-    // falta limpar 'info'
+    pool.RemoveAll();
+    info.RemoveAll();
+    livre = numSetores;
+    InicializarArray(disk, tamanho);
+
+    // Inicializando o pool no intervalo [0, quantSetores]
+    Setor *novo = new Setor(0, 0, numSetores);
+    pool.Insert(0, novo);
+
+    return 1;
 }
 
 int Disco::Desfragmentar()

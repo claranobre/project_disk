@@ -67,7 +67,7 @@ bool Lista<type>::GetElem(int pos, type &get) const { //retorna se posição é 
     return false;
 }
 
-/*template <class type>
+template <class type>
 bool Lista<type>::GetElem(type &get) const { //retorna se lista ou pilha possui elemento top. &get armazenará valor
     if (tam > 0) {
         if (bhvr == PILHA) {
@@ -86,7 +86,7 @@ bool Lista<type>::GetElem(type &get) const { //retorna se lista ou pilha possui 
     }
     return false;
 }
-*/
+
 template <class type>
 int Lista<type>::Search(type val) { //retorna posição da primeira instância de val
     //-1: não existe elemento
@@ -185,7 +185,7 @@ bool Lista<type>::Remove(int pos, type &get) { //retorna se remoção OK. &get a
     }
     return false;
 }
-/*
+
 template <class type>
 bool Lista<type>::Remove(type &get) { //se usar referência e type = int vai dar conflito com Remove(int pos)
 //salvar imediatamente conteúdo de get em outra variável caso seja ponteiro
@@ -215,7 +215,7 @@ bool Lista<type>::Remove(type &get) { //se usar referência e type = int vai dar
     }
     return false;
 }
-*/
+
 template <class type>
 void Lista<type>::Print(char separator) {
     node *temp = head->next;

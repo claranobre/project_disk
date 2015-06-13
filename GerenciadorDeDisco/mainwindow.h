@@ -24,6 +24,8 @@ private slots:
     void on_excluir_clicked();
     void on_listar_clicked();
 
+    void on_formatar_clicked();
+
 private:
     Ui::MainWindow *ui;
     Disco *hd;

@@ -13,7 +13,7 @@ File::File(string nome, int tamanho, int cluster[])
 
 File::~File()
 {
-
+    delete cluster;
 }
 
 string File::getNome()

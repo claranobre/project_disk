@@ -73,3 +73,10 @@ void MainWindow::on_listar_clicked()
 {
     Listar();
 }
+
+void MainWindow::on_formatar_clicked()
+{
+    if(hd->Formatar()){
+        Plotar();
+    }
+}
