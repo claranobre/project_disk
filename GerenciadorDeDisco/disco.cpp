@@ -100,6 +100,8 @@ int Disco::Excluir(string nome)
                     disk[pos] = '0';
                 }
             }
+            info.Remove(i);
+            livre += setoresNecessarios;
             AtualizarPool();
             return 1;
         }
@@ -245,10 +247,14 @@ void Disco::AtualizarPool()
 
     pool.RemoveAll();
 
+    cout<<endl;
     for(int i = 0; i<cont; i++){
         Setor *novo = new Setor(i, vazio[i][0], vazio[i][1]);
+        cout<<"["<<vazio[i][0]<<", "<<vazio[i][1]<<"] -> ";
         pool.Insert(i, novo);
     }
+    cout<<endl;
+
 }
 
 int Disco::Formatar(){
@@ -266,6 +272,54 @@ int Disco::Formatar(){
 
 int Disco::Desfragmentar(){
     if(isFree(1)){
+        // vetor que vai informar qual arquivo está em qual setor
+        // ex: auxDisk[0] = 1; Setor 0 tá com uma parte do arquivo 1
+        // ex: auxDisk[9] = 5; Setor 9 tá com uma parte do arquivo 5
+        int auxDisk[numSetores];
+        InicializarArray(auxDisk, numSetores);
+        File *aux;
+        for(int i = 0; i < info.Size(); i++){
+            info.GetElem(i, aux);
+            int tamanho = aux->getTamanho();
+            int setoresNecessarios = ceil ((float)tamanho/tamSetores);
+            for(int j = 0; j<setoresNecessarios; j++){
+                auxDisk[aux->getCluster(j)] = (i+1);
+            }
+        }
+        cout<<" ------ "<<endl;
+        // só para mostrar o array, depois apagar isto.
+        for(int i = 0; i<numSetores; i++){
+            cout<<"Setor: "<<i<<" Arquivo: "<<auxDisk[i]<<endl;
+        }
+
+        int temp = 0; // para ajudar na troca do auxDisk
+        char tempChar;
+        for(int i = 0; i<numSetores; i++){
+            for(int j = 0; j<numSetores; j++){
+                if(auxDisk[i] < auxDisk[j]) {
+                    temp = auxDisk[j];
+                    auxDisk[j] = auxDisk[i];
+                    auxDisk[i] = temp;
+                    for(int k = 0; k<tamSetores; k++){
+                        int pos1 = (tamSetores*i)+k;
+                        int pos2 = (tamSetores*j)+k;
+
+                        // troca os valores do disco
+                        tempChar = disk[pos2];
+                        disk[pos2] = disk[pos1];
+                        disk[pos1] = tempChar;
+                    }
+                }
+            }
+        }
+        // atualizar file
+        // atualizar pool
+        cout<<" ------ "<<endl;
+        // só para mostrar o array, depois apagar isto.
+        for(int i = 0; i<numSetores; i++){
+            cout<<"Setor: "<<i<<" Arquivo: "<<auxDisk[i]<<endl;
+        }
+        return 1;
 
     } else{
         QMessageBox msgBox;
