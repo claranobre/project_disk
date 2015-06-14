@@ -92,11 +92,11 @@ public:
     int Desfragmentar();
 
     /**
-     * Recuperar um elemento já apagado
-     * @param elm Elemento a ser recuperado
-     * @return Elemento apagado
-     */
-    int Recuperar();
+    * Função para verificar se o disco tem espaço para receber o dado
+    * @param tam
+    * @return retorna verdadeiro ou falso
+    */
+    bool isFree(int tam);
 
     /**
       *Função get para captar a quantidade de setores indicada pelo usuário
@@ -121,16 +121,7 @@ public:
 
     Lista<File *> getInfo();
 
-    Lista<Setor *> getCluster();
-
     Lista<Setor *> getPool();
-
-    /**
-    * Função para verificar se o disco tem espaço para receber o dado
-    * @param tam
-    * @return retorna verdadeiro ou falso
-    */
-    bool isFree(int tam);
 };
 
 #endif // DISCO_H

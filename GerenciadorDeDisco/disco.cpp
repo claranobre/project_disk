@@ -251,6 +251,35 @@ void Disco::AtualizarPool()
     }
 }
 
+int Disco::Formatar(){
+    pool.RemoveAll();
+    info.RemoveAll();
+    livre = numSetores;
+    InicializarArray(disk, tamanho);
+
+    // Inicializando o pool no intervalo [0, quantSetores]
+    Setor *novo = new Setor(0, 0, numSetores);
+    pool.Insert(0, novo);
+
+    return 1;
+}
+
+int Disco::Desfragmentar(){
+    if(isFree(1)){
+
+    } else{
+        QMessageBox msgBox;
+        msgBox.setText("Não tem espaço suficiente.");
+        msgBox.exec();
+        return 0;
+    }
+}
+
+// retorna se tem espaço suficiente para colocar o dado
+bool Disco::isFree(int tam){
+    return livre>=tam;
+}
+
 int Disco::getNumSetores()
 {
     return numSetores;
@@ -275,34 +304,4 @@ Lista<File *> Disco::getInfo()
 Lista<Setor *> Disco::getPool()
 {
     return pool;
-}
-
-// depois testar
-int Disco::Formatar()
-{
-    pool.RemoveAll();
-    info.RemoveAll();
-    livre = numSetores;
-    InicializarArray(disk, tamanho);
-
-    // Inicializando o pool no intervalo [0, quantSetores]
-    Setor *novo = new Setor(0, 0, numSetores);
-    pool.Insert(0, novo);
-
-    return 1;
-}
-
-int Disco::Desfragmentar()
-{
-
-}
-
-int Disco::Recuperar()
-{
-
-}
-
-// retorna se tem espaço suficiente para colocar o dado
-bool Disco::isFree(int tam){
-    return livre>=tam;
 }

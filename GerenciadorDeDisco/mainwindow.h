@@ -28,6 +28,8 @@ private slots:
 
     void on_buscar_clicked();
 
+    void on_desfragmentar_clicked();
+
 private:
     Ui::MainWindow *ui;
     Disco *hd;

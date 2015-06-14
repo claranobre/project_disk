@@ -87,3 +87,8 @@ void MainWindow::on_buscar_clicked()
     nome = ui->CampoNome->text();
     ui->lista->setText(hd->Buscar(nome.toStdString()));
 }
+
+void MainWindow::on_desfragmentar_clicked()
+{
+    hd->Desfragmentar();
+}
