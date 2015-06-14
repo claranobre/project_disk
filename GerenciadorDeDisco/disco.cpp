@@ -43,15 +43,16 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
             Setor *aux;
             pool.GetElem(contPool, aux);
 
-            if((aux->getFim() - aux->getInicio()) == 0){
+            if((aux->getFim() - aux->getInicio()) == 0){// se o inicio e o fim forem iguais
                 setores[contSetores] = aux->getFim();
                 achados++;
+                contSetores++;
             } else{
                 for(int i = aux->getInicio(); i<= aux->getFim(); i++){
                     setores[contSetores] = i;
                     achados++;
                     contSetores++;
-                    if(setoresNecessarios <= achados)
+                    if(setoresNecessarios <= achados)// se ele já tiver a quantidade necessária então sair o for
                         break;
                 }
             }
@@ -296,7 +297,7 @@ int Disco::Desfragmentar(){
         char tempChar;
         for(int i = 0; i<numSetores; i++){
             for(int j = 0; j<numSetores; j++){
-                if(auxDisk[i] < auxDisk[j]) {
+                if(auxDisk[i] < auxDisk[j] && auxDisk[i] != 0) {
                     temp = auxDisk[j];
                     auxDisk[j] = auxDisk[i];
                     auxDisk[i] = temp;
@@ -313,7 +314,8 @@ int Disco::Desfragmentar(){
             }
         }
         // atualizar file
-        // atualizar pool
+
+        AtualizarPool();
         cout<<" ------ "<<endl;
         // só para mostrar o array, depois apagar isto.
         for(int i = 0; i<numSetores; i++){
