@@ -35,27 +35,12 @@ int Dialog::getTamSetor() const
     return tamSetor;
 }
 
-void Dialog::setTamSetor(int value)
-{
-    tamSetor = value;
-}
-
 int Dialog::getTamDisco() const
 {
     return tamDisco;
 }
 
-void Dialog::setTamDisco(int value)
-{
-    tamDisco = value;
-}
-
 int Dialog::getQuantSetor() const
 {
     return quantSetor;
-}
-
-void Dialog::setQuantSetor(int value)
-{
-    quantSetor = value;
 }

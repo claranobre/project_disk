@@ -25,7 +25,7 @@ Disco::~Disco()
     delete disk;
 }
 
-int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNome)
+int Disco::Salvar(const char *strValue, int tamValue, string strNome)
 {
     // Guarda a quantidade de setores necessários para armazenar o dado
     int setoresNecessarios = ceil ((float)tamValue/tamSetores);
@@ -376,13 +376,7 @@ int Disco::getTamSetores()
     return tamSetores;
 }
 
-Lista<File *> Disco::getInfo()
+char Disco::getDisk(int id)
 {
-    return info;
-}
-
-
-Lista<Setor *> Disco::getPool()
-{
-    return pool;
+    return disk[id];
 }

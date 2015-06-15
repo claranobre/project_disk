@@ -39,7 +39,7 @@ void MainWindow::Plotar()
         grafico.push_back("<tr>");
         for(int j = 0; j < hd->getTamSetores(); j++){
             grafico.push_back("<th>");
-            grafico.push_back(hd->disk[cont]);
+            grafico.push_back(hd->getDisk(cont));
             grafico.push_back("</th>");
             cont++;
         }
@@ -64,7 +64,7 @@ void MainWindow::on_salvar_clicked()
    aux = valor.toLatin1();
    const char *strValor = aux.data();
 
-   if(hd->Salvar(strValor, valor.size(), nome.toStdString(), nome.size())){
+   if(hd->Salvar(strValor, valor.size(), nome.toStdString())){
         Plotar();
    }
 }

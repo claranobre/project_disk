@@ -5,19 +5,23 @@
 #include "lista.h"
 #include <QMainWindow>
 
+/**
+ * \class Disco
+ * \brief Classe que controla todos as funções do disco
+ */
 class Disco {
 
 private:
-    int numSetores;
-    int tamSetores;
-    int tamanho;
-    int livre; // quantidade de setores livres
+    int numSetores;/**< Guarda a quantidade de setores  */
+    int tamSetores;/**< Guarda o tamanho dos setores */
+    int tamanho;/**< Tamanho do disco */
+    int livre;/**< Quantidade de setores livres */
+    char *disk;/** array de char que guarda os valores do arquivo */
 
-    Lista<File*> info;
-    Lista<Setor*> pool;
+    Lista<File*> info;/**< Lista com os arquivos */
+    Lista<Setor*> pool;/**< Lista de setores livres */
 
 public:
-    char *disk; // vai ficar público por enquanto, mas ele é privado
 
     /**
      * Construtor do disco
@@ -34,12 +38,15 @@ public:
 
     /**
     * Função para salvar as informações do arquivo
-    * @param strValue, tamValue, strNome, tamNome
-    * return tamanho do arquivo, nome
+    * @param strValue Valor da string a ser salva no disco
+    * @param tamValue Tamanho da string
+    * @param strNome Nome do arquivo
+    * @return 1 se salvou, 0 se não salvou
     */
-    int Salvar(const char *strValue, int tamValue, string strNome, int tamNome);
+    int Salvar(const char *strValue, int tamValue, string strNome);
 
     /**
+     * Exclui um arquivo
      * @param Nome do arquivo que será excluido
      * @return 1 se exclusão foi correta ou 0 caso não tenha excluido
      */
@@ -53,15 +60,16 @@ public:
     QString Buscar(string nome);
 
     /**
-     *
+     * Lista os arquivos salvos
      * @return html para ser inserido no widget
      */
     QString Listar();
 
     /**
-     * Inicializa um vetor com todos seus indices com valores zero
+     * Inicializa um vetor com todos os valores iguais
      * @param array que será inicializado
      * @param tamanho do array
+     * @param valor que inicializará o array
      */
     void InicializarArray(int array[], int tamanho, int valor);
 
@@ -73,7 +81,7 @@ public:
     void InicializarArray(char array[], int tamanho);
 
     /**
-     * Atualiza o pool após alguma modificação no disco (add, delete, format)
+     * Atualiza o pool após alguma modificação no disco (salvar, excluir, formatar, desfragmentar)
      */
     void AtualizarPool();
 
@@ -84,10 +92,8 @@ public:
     int Formatar();
 
     /**
-     * Desfragmenta o Disco, pegando espaços vazios e preenchendo com dados mais próximos
-     * @param value Dado a ser inserido
-     * @param posição do dado a ser inserido
-     * @return Disco vazio
+     * Desfragmenta o Disco, deixando os arquivos sem clustes contiguos
+     * @return 1 se formatou, 0 se teve erro
      */
     int Desfragmentar();
 
@@ -113,21 +119,22 @@ public:
 
     /**
      * Função para captar o tamanho do disco
-     * @param tamDisco
-     * @return Tamanho total do disco (quantidade de setor * tamanho do setor)
+     * @return tamanho do disco
     */
     int getTamanho();
 
     /**
     * Função para captar o tamanho de cada setor
-    * @param tamSetores
-    * return Tamanho total dos setores
+    * @return Tamanho total dos setores
     */
     int getTamSetores();
 
-    Lista<File *> getInfo();
-
-    Lista<Setor *> getPool();
+    /**
+     * Retorna o valor de um indice do vetor
+     * @param id indice do vetor
+     * @return disk[id]
+     */
+    char getDisk(int id);
 };
 
 #endif // DISCO_H
