@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['recuperar',['recuperar',['../classLista.html#a0cbeced4e444c69562262fcb1e1ab49c',1,'Lista']]],
-  ['remove',['remove',['../classLista.html#acfa3991b3fb91d3c4c1df5eb02e583ac',1,'Lista']]]
+  ['file',['File',['../classFile.html#a19ef2ccc877d781b51d351eb18b961cf',1,'File']]],
+  ['formatar',['Formatar',['../classDisco.html#a94f70ad19848fd60993332fa2f56a594',1,'Disco']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isempty',['isEmpty',['../classLista.html#a1f5401b4cff0910a13da7190f08e6e29',1,'Lista']]]
+  ['excluir',['Excluir',['../classDisco.html#ae9ed7d8acb5337a471c37f90de72aeee',1,'Disco']]]
 ];

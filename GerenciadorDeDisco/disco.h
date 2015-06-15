@@ -135,6 +135,8 @@ public:
      * @return disk[id]
      */
     char getDisk(int id);
+
+    char* itoa(int value, char* result, int base);
 };
 
 #endif // DISCO_H

@@ -1,0 +1,116 @@
+\hypertarget{classFile}{}\section{File Class Reference}
+\label{classFile}\index{File@{File}}
+
+
+Classe que guarda os arquivos salvos.  
+
+
+
+
+{\ttfamily \#include $<$file.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFile_a19ef2ccc877d781b51d351eb18b961cf}{File} (string nome, int tamanho, int cluster\mbox{[}$\,$\mbox{]})
+\item 
+\hyperlink{classFile_ac704ebdf5f57d7a1c5ddf409d797fb69}{$\sim$\+File} ()
+\item 
+string \hyperlink{classFile_aaa36b9ad9a33bdc541165cee474c8f8f}{get\+Nome} ()
+\item 
+int \hyperlink{classFile_a814c53f4c125523cde4e234b774955a5}{get\+Tamanho} ()
+\item 
+int \hyperlink{classFile_ab207a5854e4c0cc5dbcb001dbf8b9dcc}{get\+Cluster} (int id)
+\item 
+void \hyperlink{classFile_ae2dd2a90cdbb5ea1ab653fef2b5732fa}{set\+Cluster} (int value, int id)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe que guarda os arquivos salvos. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classFile_a19ef2ccc877d781b51d351eb18b961cf}{}\index{File@{File}!File@{File}}
+\index{File@{File}!File@{File}}
+\subsubsection[{File}]{\setlength{\rightskip}{0pt plus 5cm}File\+::\+File (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{int}]{tamanho, }
+\item[{int}]{cluster\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{classFile_a19ef2ccc877d781b51d351eb18b961cf}
+Construtor que inicia as variaveis nome, tamanho e cluster 
+\begin{DoxyParams}{Parameters}
+{\em nome} & do arquivo \\
+\hline
+{\em tamanho} & do arquivo \\
+\hline
+{\em cluster} & array com os clusters \\
+\hline
+\end{DoxyParams}
+\hypertarget{classFile_ac704ebdf5f57d7a1c5ddf409d797fb69}{}\index{File@{File}!````~File@{$\sim$\+File}}
+\index{````~File@{$\sim$\+File}!File@{File}}
+\subsubsection[{$\sim$\+File}]{\setlength{\rightskip}{0pt plus 5cm}File\+::$\sim$\+File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFile_ac704ebdf5f57d7a1c5ddf409d797fb69}
+Destrutor padrão 
+
+\subsection{Member Function Documentation}
+\hypertarget{classFile_ab207a5854e4c0cc5dbcb001dbf8b9dcc}{}\index{File@{File}!get\+Cluster@{get\+Cluster}}
+\index{get\+Cluster@{get\+Cluster}!File@{File}}
+\subsubsection[{get\+Cluster}]{\setlength{\rightskip}{0pt plus 5cm}int File\+::get\+Cluster (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{classFile_ab207a5854e4c0cc5dbcb001dbf8b9dcc}
+Retorna o valor do indice(id) do cluster 
+\begin{DoxyParams}{Parameters}
+{\em id} & do indice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cluster\mbox{[}id\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{classFile_aaa36b9ad9a33bdc541165cee474c8f8f}{}\index{File@{File}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!File@{File}}
+\subsubsection[{get\+Nome}]{\setlength{\rightskip}{0pt plus 5cm}string File\+::get\+Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFile_aaa36b9ad9a33bdc541165cee474c8f8f}
+Retorna o nome do arquivo \begin{DoxyReturn}{Returns}
+nome 
+\end{DoxyReturn}
+\hypertarget{classFile_a814c53f4c125523cde4e234b774955a5}{}\index{File@{File}!get\+Tamanho@{get\+Tamanho}}
+\index{get\+Tamanho@{get\+Tamanho}!File@{File}}
+\subsubsection[{get\+Tamanho}]{\setlength{\rightskip}{0pt plus 5cm}int File\+::get\+Tamanho (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classFile_a814c53f4c125523cde4e234b774955a5}
+Retorna o tamanho do arquivo \begin{DoxyReturn}{Returns}
+tamanho 
+\end{DoxyReturn}
+\hypertarget{classFile_ae2dd2a90cdbb5ea1ab653fef2b5732fa}{}\index{File@{File}!set\+Cluster@{set\+Cluster}}
+\index{set\+Cluster@{set\+Cluster}!File@{File}}
+\subsubsection[{set\+Cluster}]{\setlength{\rightskip}{0pt plus 5cm}void File\+::set\+Cluster (
+\begin{DoxyParamCaption}
+\item[{int}]{value, }
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{classFile_ae2dd2a90cdbb5ea1ab653fef2b5732fa}
+Insere um valor no cluster 
+\begin{DoxyParams}{Parameters}
+{\em value} & a ser inserido no cluster \\
+\hline
+{\em id} & indice a ser inserido \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Gerenciador\+De\+Disco/file.\+h\item 
+Gerenciador\+De\+Disco/file.\+cpp\end{DoxyCompactItemize}

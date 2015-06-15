@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['formatar',['formatar',['../classLista.html#aad7434887449f736b322071315ec64cd',1,'Lista']]],
-  ['fragmentar',['fragmentar',['../classLista.html#aba5184a091be36897e32075b18abcb40',1,'Lista']]]
+  ['buscar',['Buscar',['../classDisco.html#a087a7b5e2524e8e49a984633ee9b6df2',1,'Disco']]]
 ];
