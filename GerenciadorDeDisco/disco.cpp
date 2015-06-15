@@ -287,40 +287,42 @@ int Disco::Desfragmentar(){
                 auxDisk[aux->getCluster(j)] = (i+1);
             }
         }
-        cout<<" ------ "<<endl;
-        // só para mostrar o array, depois apagar isto.
-        for(int i = 0; i<numSetores; i++){
-            cout<<"Setor: "<<i<<" Arquivo: "<<auxDisk[i]<<endl;
-        }
 
-        int temp = 0; // para ajudar na troca do auxDisk
-        char tempChar;
+        // se não tiver fragmentado ele encerra a função
+        if(!isFragmented(auxDisk)){
+            cout<<"I'm fine!"<<endl;
+            return 1;
+        }
+        cout<<"i'm sick =/"<<endl;
+
         for(int i = 0; i<numSetores; i++){
-            for(int j = 0; j<numSetores; j++){
-                if(auxDisk[i] < auxDisk[j] && auxDisk[i] != 0) {
-                    temp = auxDisk[j];
-                    auxDisk[j] = auxDisk[i];
-                    auxDisk[i] = temp;
+            for(int j = 0; j<numSetores-1; j++){
+                if(auxDisk[j] < auxDisk[j+1] && auxDisk[j] != 0) {
+                    std::swap(auxDisk[j], auxDisk[j+1]);
                     for(int k = 0; k<tamSetores; k++){
-                        int pos1 = (tamSetores*i)+k;
-                        int pos2 = (tamSetores*j)+k;
+                        int pos1 = (tamSetores*j)+k;
+                        int pos2 = (tamSetores*j+1)+k;
 
                         // troca os valores do disco
-                        tempChar = disk[pos2];
-                        disk[pos2] = disk[pos1];
-                        disk[pos1] = tempChar;
+                        std::swap(disk[pos1], disk[pos2]);
                     }
                 }
             }
         }
-        // atualizar file
 
-        AtualizarPool();
-        cout<<" ------ "<<endl;
-        // só para mostrar o array, depois apagar isto.
-        for(int i = 0; i<numSetores; i++){
-            cout<<"Setor: "<<i<<" Arquivo: "<<auxDisk[i]<<endl;
+        // Atualizando a lista 'info'
+        int cont;
+        for(int id = 0; id < info.Size(); id++){
+            info.GetElem(id, aux);
+            cont = 0;
+            for(int j = 0; j<numSetores; j++){ // j = setor; auxDisk[j] = arquivo
+                if((id+1) == auxDisk[j]){ // para garantir que aux vai pegar só os seus setores
+                    aux->setCluster(j, cont);
+                    cont++;
+                }
+            }
         }
+        AtualizarPool();
         return 1;
 
     } else{
@@ -329,6 +331,29 @@ int Disco::Desfragmentar(){
         msgBox.exec();
         return 0;
     }
+}
+
+int Disco::isFragmented(int disco[])
+{
+    if(pool.Size()>1)
+        return 1;
+
+    int prox;
+    for(int i = 0; i<numSetores; i++){
+        prox = i;
+        for(int j = i; j<numSetores; j++){
+            if(disco[i] == disco[j]){
+                if(j == (prox+1) || j == prox){
+                    prox = j;
+                }
+                else{
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+
 }
 
 // retorna se tem espaço suficiente para colocar o dado
