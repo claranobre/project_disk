@@ -90,5 +90,7 @@ void MainWindow::on_buscar_clicked()
 
 void MainWindow::on_desfragmentar_clicked()
 {
-    hd->Desfragmentar();
+    if(hd->Desfragmentar()){
+        Plotar();
+    }
 }

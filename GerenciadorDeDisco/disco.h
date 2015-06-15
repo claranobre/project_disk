@@ -92,6 +92,12 @@ public:
     int Desfragmentar();
 
     /**
+     * Verifica se o disco está fragmentado
+     * @return 1 se tiver fragmentado, 0 se não tiver
+     */
+    int isFragmented(int disco[]);
+
+    /**
     * Função para verificar se o disco tem espaço para receber o dado
     * @param tam
     * @return retorna verdadeiro ou falso

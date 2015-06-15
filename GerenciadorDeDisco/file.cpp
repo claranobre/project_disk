@@ -26,7 +26,12 @@ int File::getTamanho()
     return tamanho;
 }
 
-int File::getCluster(int i)
+int File::getCluster(int id)
 {
-    return cluster[i];
+    return cluster[id];
 }
+void File::setCluster(int value, int id)
+{
+    cluster[id] = value;
+}
+
