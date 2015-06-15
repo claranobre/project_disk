@@ -25,14 +25,14 @@ Disco::~Disco()
     delete disk;
 }
 
-int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNome)
+int Disco::Salvar(const char *strValue, int tamValue, string strNome)
 {
     // Guarda a quantidade de setores necessários para armazenar o dado
     int setoresNecessarios = ceil ((float)tamValue/tamSetores);
 
     //Guarda o id dos setores onde serão inseridos
     int setores[setoresNecessarios];
-    InicializarArray(setores, setoresNecessarios);
+    InicializarArray(setores, setoresNecessarios, 0);
 
     //Testa para saber se existe setores livres
     if(isFree(setoresNecessarios)){
@@ -43,15 +43,16 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
             Setor *aux;
             pool.GetElem(contPool, aux);
 
-            if((aux->getFim() - aux->getInicio()) == 0){
+            if((aux->getFim() - aux->getInicio()) == 0){// se o inicio e o fim forem iguais
                 setores[contSetores] = aux->getFim();
                 achados++;
+                contSetores++;
             } else{
                 for(int i = aux->getInicio(); i<= aux->getFim(); i++){
                     setores[contSetores] = i;
                     achados++;
                     contSetores++;
-                    if(setoresNecessarios <= achados)
+                    if(setoresNecessarios <= achados)// se ele já tiver a quantidade necessária então sair o for
                         break;
                 }
             }
@@ -100,6 +101,8 @@ int Disco::Excluir(string nome)
                     disk[pos] = '0';
                 }
             }
+            info.Remove(i);
+            livre += setoresNecessarios;
             AtualizarPool();
             return 1;
         }
@@ -195,10 +198,10 @@ QString Disco::Listar()
 }
 
 //Inicializa um array com o valor 0
-void Disco::InicializarArray(int array[], int tamanho)
+void Disco::InicializarArray(int array[], int tamanho, int valor)
 {
     for(int i=0; i<tamanho; i++){
-        array[i] = 0;
+        array[i] = valor;
     }
 }
 
@@ -245,10 +248,14 @@ void Disco::AtualizarPool()
 
     pool.RemoveAll();
 
+    cout<<endl;
     for(int i = 0; i<cont; i++){
         Setor *novo = new Setor(i, vazio[i][0], vazio[i][1]);
+        cout<<"["<<vazio[i][0]<<", "<<vazio[i][1]<<"] -> ";
         pool.Insert(i, novo);
     }
+    cout<<endl;
+
 }
 
 int Disco::Formatar(){
@@ -266,6 +273,57 @@ int Disco::Formatar(){
 
 int Disco::Desfragmentar(){
     if(isFree(1)){
+        // vetor que vai informar qual arquivo está em qual setor
+        // ex: auxDisk[0] = 1; Setor 0 tá com uma parte do arquivo 1
+        // ex: auxDisk[9] = 5; Setor 9 tá com uma parte do arquivo 5
+        int auxDisk[numSetores];
+        InicializarArray(auxDisk, numSetores, 999);
+        File *aux;
+        for(int i = 0; i < info.Size(); i++){
+            info.GetElem(i, aux);
+            int tamanho = aux->getTamanho();
+            int setoresNecessarios = ceil ((float)tamanho/tamSetores);
+            for(int j = 0; j<setoresNecessarios; j++){
+                auxDisk[aux->getCluster(j)] = (i+1);
+            }
+        }
+
+        // se não tiver fragmentado ele encerra a função
+        if(!isFragmented(auxDisk)){
+            cout<<"I'm fine!"<<endl;
+            return 1;
+        }
+        cout<<"i'm sick =/"<<endl;
+
+        for(int i = 0; i<numSetores; i++){
+            for(int j = 0; j<numSetores-1; j++){
+                if(auxDisk[j] > auxDisk[j+1]) {
+                    std::swap(auxDisk[j], auxDisk[j+1]);
+                    for(int k = 0; k<tamSetores; k++){
+                        int pos1 = (tamSetores*j)+k;
+                        int pos2 = (tamSetores*(j+1))+k;
+
+                        // troca os valores do disco
+                        std::swap(disk[pos1], disk[pos2]);
+                    }
+                }
+            }
+        }
+
+        // Atualizando a lista 'info'
+        int cont;
+        for(int id = 0; id < info.Size(); id++){
+            info.GetElem(id, aux);
+            cont = 0;
+            for(int j = 0; j<numSetores; j++){ // j = setor; auxDisk[j] = arquivo
+                if((id+1) == auxDisk[j]){ // para garantir que aux vai pegar só os seus setores
+                    aux->setCluster(j, cont);
+                    cont++;
+                }
+            }
+        }
+        AtualizarPool();
+        return 1;
 
     } else{
         QMessageBox msgBox;
@@ -273,6 +331,29 @@ int Disco::Desfragmentar(){
         msgBox.exec();
         return 0;
     }
+}
+
+int Disco::isFragmented(int disco[])
+{
+    if(pool.Size()>1)
+        return 1;
+
+    int prox;
+    for(int i = 0; i<numSetores; i++){
+        prox = i;
+        for(int j = i; j<numSetores; j++){
+            if(disco[i] == disco[j]){
+                if(j == (prox+1) || j == prox){
+                    prox = j;
+                }
+                else{
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+
 }
 
 // retorna se tem espaço suficiente para colocar o dado
@@ -295,13 +376,7 @@ int Disco::getTamSetores()
     return tamSetores;
 }
 
-Lista<File *> Disco::getInfo()
+char Disco::getDisk(int id)
 {
-    return info;
-}
-
-
-Lista<Setor *> Disco::getPool()
-{
-    return pool;
+    return disk[id];
 }

@@ -27,16 +27,26 @@ void MainWindow::AbrirDialog()
 
 void MainWindow::Plotar()
 {
+
     QString grafico;
+    grafico.push_back("<style type='text/css'>");
+    grafico.push_back(".celula{border-collapse:collapse;border-color:#3366FF;}.celula th{font-family:Arial, sans-serif;font-weight:normal;padding:10px 10px;border-style:solid;border-width:1px;border-color:#3366FF;background-color:#f0f0f0;}");
+    grafico.push_back("</style>");
+    grafico.push_back("<table class='celula'>");
+
     int cont = 0;
     for(int i = 0; i < hd->getNumSetores(); i++){
-        grafico.push_back("[");
+        grafico.push_back("<tr>");
         for(int j = 0; j < hd->getTamSetores(); j++){
-            grafico.push_back(hd->disk[cont]);
+            grafico.push_back("<th>");
+            grafico.push_back(hd->getDisk(cont));
+            grafico.push_back("</th>");
             cont++;
         }
-        grafico.push_back("]");
+        grafico.push_back("</tr>");
     }
+
+    grafico.push_back("</table>");
     ui->grafico->setText(grafico);
 }
 
@@ -54,7 +64,7 @@ void MainWindow::on_salvar_clicked()
    aux = valor.toLatin1();
    const char *strValor = aux.data();
 
-   if(hd->Salvar(strValor, valor.size(), nome.toStdString(), nome.size())){
+   if(hd->Salvar(strValor, valor.size(), nome.toStdString())){
         Plotar();
    }
 }
@@ -90,5 +100,7 @@ void MainWindow::on_buscar_clicked()
 
 void MainWindow::on_desfragmentar_clicked()
 {
-    hd->Desfragmentar();
+    if(hd->Desfragmentar()){
+        Plotar();
+    }
 }
