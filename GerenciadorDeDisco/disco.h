@@ -63,7 +63,7 @@ public:
      * @param array que será inicializado
      * @param tamanho do array
      */
-    void InicializarArray(int array[], int tamanho);
+    void InicializarArray(int array[], int tamanho, int valor);
 
     /**
      * Inicializa um vetor com todos seus indices com valores zero

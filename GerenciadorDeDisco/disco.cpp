@@ -32,7 +32,7 @@ int Disco::Salvar(const char *strValue, int tamValue, string strNome, int tamNom
 
     //Guarda o id dos setores onde serão inseridos
     int setores[setoresNecessarios];
-    InicializarArray(setores, setoresNecessarios);
+    InicializarArray(setores, setoresNecessarios, 0);
 
     //Testa para saber se existe setores livres
     if(isFree(setoresNecessarios)){
@@ -198,10 +198,10 @@ QString Disco::Listar()
 }
 
 //Inicializa um array com o valor 0
-void Disco::InicializarArray(int array[], int tamanho)
+void Disco::InicializarArray(int array[], int tamanho, int valor)
 {
     for(int i=0; i<tamanho; i++){
-        array[i] = 0;
+        array[i] = valor;
     }
 }
 
@@ -277,7 +277,7 @@ int Disco::Desfragmentar(){
         // ex: auxDisk[0] = 1; Setor 0 tá com uma parte do arquivo 1
         // ex: auxDisk[9] = 5; Setor 9 tá com uma parte do arquivo 5
         int auxDisk[numSetores];
-        InicializarArray(auxDisk, numSetores);
+        InicializarArray(auxDisk, numSetores, 999);
         File *aux;
         for(int i = 0; i < info.Size(); i++){
             info.GetElem(i, aux);
@@ -297,11 +297,11 @@ int Disco::Desfragmentar(){
 
         for(int i = 0; i<numSetores; i++){
             for(int j = 0; j<numSetores-1; j++){
-                if(auxDisk[j] < auxDisk[j+1] && auxDisk[j] != 0) {
+                if(auxDisk[j] > auxDisk[j+1]) {
                     std::swap(auxDisk[j], auxDisk[j+1]);
                     for(int k = 0; k<tamSetores; k++){
                         int pos1 = (tamSetores*j)+k;
-                        int pos2 = (tamSetores*j+1)+k;
+                        int pos2 = (tamSetores*(j+1))+k;
 
                         // troca os valores do disco
                         std::swap(disk[pos1], disk[pos2]);
