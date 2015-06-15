@@ -27,16 +27,26 @@ void MainWindow::AbrirDialog()
 
 void MainWindow::Plotar()
 {
+
     QString grafico;
+    grafico.push_back("<style type='text/css'>");
+    grafico.push_back(".celula{border-collapse:collapse;border-color:#3366FF;}.celula th{font-family:Arial, sans-serif;font-weight:normal;padding:10px 10px;border-style:solid;border-width:1px;border-color:#3366FF;background-color:#f0f0f0;}");
+    grafico.push_back("</style>");
+    grafico.push_back("<table class='celula'>");
+
     int cont = 0;
     for(int i = 0; i < hd->getNumSetores(); i++){
-        grafico.push_back("[");
+        grafico.push_back("<tr>");
         for(int j = 0; j < hd->getTamSetores(); j++){
+            grafico.push_back("<th>");
             grafico.push_back(hd->disk[cont]);
+            grafico.push_back("</th>");
             cont++;
         }
-        grafico.push_back("]");
+        grafico.push_back("</tr>");
     }
+
+    grafico.push_back("</table>");
     ui->grafico->setText(grafico);
 }
 
