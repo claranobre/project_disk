@@ -1,0 +1,29 @@
+.celula{
+    border-collapse:collapse;
+    border-spacing:0;
+    border-color:#3366FF;
+}
+.celula th{
+    font-family:Arial, sans-serif;
+    font-size:10px;
+    font-weight:normal;
+    padding:30px 15px;
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:#3366FF;
+    background-color:#f0f0f0;
+}
+.inicio{
+    border-collapse:collapse;
+    border-spacing:0;
+    border-color:#000;
+    border-left:thick double #000099!important;
+}
+.final{
+    border-collapse:collapse;
+    border-spacing:0;
+    border-color:#000;
+    border-right:thick double #000099!important;
+}

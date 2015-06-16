@@ -8,16 +8,36 @@ namespace Ui {
 class MainWindow;
 }
 
+/**
+ * \class MainWindow
+ * \brief Classe que a interação com a segunda tela da interface grafica
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+
+    /**
+     * Construtor padrão da classe
+     * @param parent
+     */
     explicit MainWindow(QWidget *parent = 0);
+
+    /**
+      * Destrutor padrão
+      */
     ~MainWindow();
-    void AbrirDialog();/**< Abre a primeira tela do sistema */ // Abre a primeira janela para conf o disco
-    void Plotar(); //Plotar gráfico
-    void Listar(); //Lista os arquivos
+
+    /**
+     * Abre a primeira tela do sistema, que configura o sistema
+     */
+    void AbrirDialog();
+
+    /**
+     * Plota o grafico da cluster do HD
+     */
+    void Plotar();
 
 private slots:
     /**
@@ -51,10 +71,10 @@ private slots:
     void on_desfragmentar_clicked();
 
 private:
-    Ui::MainWindow *ui;
-    Disco *hd;
-    QString nome;
-    QString valor;
+    Ui::MainWindow *ui; /**< variáve que tem ligação com a interface gráfica */
+    Disco *hd; /**< variável que simula do HD */
+    QString nome; /**< Guarda o valor que está no campo 'nome' que o usuario digita */
+    QString valor; /**< Guarda o valor que está no campo 'valor' que o usuario digita */
 };
 
 #endif // MAINWINDOW_H

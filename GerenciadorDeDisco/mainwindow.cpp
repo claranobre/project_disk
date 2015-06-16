@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete hd;
 }
 
 void MainWindow::AbrirDialog()
@@ -50,11 +51,6 @@ void MainWindow::Plotar()
     ui->grafico->setText(grafico);
 }
 
-void MainWindow::Listar()
-{
-    ui->lista->setText(hd->Listar());
-}
-
 void MainWindow::on_salvar_clicked()
 {
    nome = ui->CampoNome->text();
@@ -82,7 +78,7 @@ void MainWindow::on_excluir_clicked()
 
 void MainWindow::on_listar_clicked()
 {
-    Listar();
+    ui->lista->setText(hd->Listar());
 }
 
 void MainWindow::on_formatar_clicked()
