@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['print',['Print',['../classLista.html#a6994e358359f08c5f771edafbab8afa3',1,'Lista']]]
+  ['operator_3d',['operator=',['../classLista.html#ae1cc9720e5ec77d3919bb67242f91e85',1,'Lista']]]
 ];

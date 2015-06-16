@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d',['operator=',['../classLista.html#ae1cc9720e5ec77d3919bb67242f91e85',1,'Lista']]]
+  ['mainwindow',['MainWindow',['../classMainWindow.html#a8b244be8b7b7db1b08de2a2acb9409db',1,'MainWindow']]]
 ];
