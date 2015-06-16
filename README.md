@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>##Trabalho da Terceira Unidade EDB1/LP1##</h1>
 Autores: Ana Clara (github.com/claranobre) e Rai Vitor (github.com/rai-vitor)
 
@@ -25,3 +26,21 @@ Autores: Ana Clara (github.com/claranobre) e Rai Vitor (github.com/rai-vitor)
 <h1>**Documentação**</h1>
 
 <h5> Foi utilizada a ferramenta Doxygen para auxiliar na documentação da execução desse projeto, para o usuário visualizar é necessário entrar no diretório "html" e acessar o arquivo index.html, logo a documentação será aberta em modo offline em seu navegador padrão</h5>
+=======
+# Simulador de Disco
+
+### Nome e Matrícula ###
+Ana Clara Nobre Mendes - 2013002964
+Raí Vitor Morais da Silva - 2014000900
+
+### Como Executar o programa ###
+
+cd GerenciadorDeDisco
+
+./GerenciadorDeDisco
+
+
+### Makefile ###
+GerenciadorDeDisco/Makefile
+
+>>>>>>> 68db918b62a0482479cdb64b5e981ab6a9dba924

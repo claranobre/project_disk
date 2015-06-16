@@ -156,14 +156,15 @@ bool Lista<type>::Remove(unsigned int pos) { //retorna se remoção OK. Não ret
 
 template <class type>
 bool Lista<type>::RemoveAll() {
-    node *temp = head->next;
+    /*node *temp = head->next;
     node *del = temp;
     while (temp != NULL) {
         del = temp;
         delete del;
         temp = temp->next;
     }
-    head->next = NULL;
+    head->next = NULL;*/
+    while(Remove(0));
     tam = 0;
     return true;
 }

@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title> Teste </title>
+    <style type="text/css">
+		.celula{
+			border-collapse:collapse;
+			border-spacing:0;
+			border-color:#3366FF;
+		}
+		.celula th{
+			padding:30px 15px;
+			border-style:solid;
+			border-width:1px;
+			overflow:hidden;
+			word-break:normal;
+			border-color:#3366FF;
+			background-color:#f0f0f0;
+		}
+		.inicio{
+			border-spacing:0;
+			border-color:#000;
+/*			border-left:thick double #000099!important;*/
+		}
+		.final{
+			border-spacing:0;
+			border-color:#000;
+/*			border-right:thick double #000099!important;*/
+		}
+    </style>
+</head>    
+<body>
+    <table class="celula">
+      <tr>
+        <th class="inicio"></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="final"></th>  
+        
+        <th class="inicio"></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="final"></th>
+
+        <th class="inicio"></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="final"></th>  
+
+        <th class="inicio"></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="final"></th> 
+
+        <th class="inicio"></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="final"></th> 
+
+        <th class="inicio"></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="final"></th>
+
+        <th class="inicio"></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="final"></th>   
+
+        <th class="inicio"></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="final"></th>  
+
+    </tr>
+    </table>
+</body>
+</html>
