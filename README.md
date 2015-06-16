@@ -9,7 +9,7 @@ Autores: Ana Clara (github.com/claranobre) e Rai Vitor (github.com/rai-vitor)
 <h1>**Execução**</h1>
 
 <h5>O usuário deve entrar no diretório do projeto "project_disk" pelo terminal Linux ou Terminal simulador(CYGWIN) do Windows</h5>
-<h5>Estando dentro do diretório o usuário deve entrar no diretório criado pela biblioteca gráfica utilizada para execução do projeto (Qt creator):
+<h5>Estando dentro do diretório "GerenciadorDeDisco" o usuário deve entrar no diretório criado pela biblioteca gráfica utilizada para execução do projeto (Qt creator):
 	build-GerenciadorDeDisco-Desktop_Qt_5_4_1_GCC_64bit-Debug </h5>
 <h5>Estando dentro do diretório o usuário deve escrever o comando "make"</h5>
 <h5>Ao terminar o comando será criado o objeto executável denominado "GerenciadorDeDisco"</h5>
